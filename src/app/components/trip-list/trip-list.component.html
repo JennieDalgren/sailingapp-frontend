@@ -1,0 +1,21 @@
+
+
+<ul class ="trip-list">
+  <li *ngFor="let trip of trips">
+    <a [routerLink]="['/trips', trip.id]">
+      <h3>{{trip.startLocation}} - {{trip.endLocation}}</h3>
+      <p>{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</p>
+    </a>
+  </li>
+</ul>
+
+
+<!-- <md-list>
+  <md-list-item *ngFor="let trip of trips">
+    <h3 mdLine> {{message.from}} </h3>
+    <p mdLine>
+      <span> {{message.subject}} </span>
+      <span class="demo-2"> -- {{message.content}} </span>
+    </p>
+  </md-list-item>
+</md-list> -->

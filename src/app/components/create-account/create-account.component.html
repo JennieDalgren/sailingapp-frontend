@@ -1,0 +1,40 @@
+
+<form (ngSubmit)="submitForm(myForm)" #myForm="ngForm" novalidate>
+  <p> Name
+    <input type="text" name="name" [(ngModel)]="name"
+          #myName="ngModel" required />
+  </p>
+  <div *ngIf="myName.errors && (myName.dirty || myName.touched)">
+    <p class="error" [hidden]="!myName.errors.required">
+      Name is required
+    </p>
+  </div>
+  <p> Email
+    <input type="text" name="email" [(ngModel)]="email"
+          #myEmail="ngModel" required />
+  </p>
+  <div *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)">
+    <p class="error" [hidden]="!myEmail.errors.required">
+      Email is required
+    </p>
+  </div>
+  <p> Phone Number
+    <input type="text" name="phone-number" [(ngModel)]="phoneNumber"
+          #myPhoneNumber="ngModel" required />
+  </p>
+  <div *ngIf="myPhoneNumber.errors && (myPhoneNumber.dirty || myPhoneNumber.touched)">
+    <p class="error" [hidden]="!myPhoneNumber.errors.required">
+      Phone number is required
+    </p>
+  </div>
+  <p> Password
+    <input type="password" name="password" [(ngModel)]="password"
+          #myPassword="ngModel" required />
+  </p>
+  <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)">
+    <p class="error" [hidden]="!myPassword.errors.required">
+      Password is required
+    </p>
+  </div>
+  <button type="submit"> signup </button>
+</form>
