@@ -10,7 +10,6 @@ import { TripService } from './services/trip.service';
 
 import { AppComponent } from './app.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
-import { TripListPageComponent } from './pages/trip-list-page/trip-list-page.component';
 import { SingleTripPageComponent } from './pages/single-trip-page/single-trip-page.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserComponent } from './components/user/user.component';
@@ -23,12 +22,12 @@ import { CreateTripComponent } from './components/create-trip/create-trip.compon
 import { HomeComponent } from './pages/home/home.component';
 
 import {MatListModule} from '@angular/material';
+import { SearchComponent } from './components/search/search.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'trips', component: TripListPageComponent },
   { path: 'trips/:id', component: SingleTripPageComponent },
   { path: 'playground', component: PlaygroundComponent },
 ];
@@ -37,7 +36,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CreateAccountComponent,
-    TripListPageComponent,
     SingleTripPageComponent,
     UserPageComponent,
     UserComponent,
@@ -46,7 +44,8 @@ const routes: Routes = [
     PlaygroundComponent,
     FileSelectDirective,
     CreateTripComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

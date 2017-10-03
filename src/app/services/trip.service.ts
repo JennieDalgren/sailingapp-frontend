@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TripService {
 
+
   constructor(private http: Http) { }
 
   getTripList(){
@@ -18,4 +19,6 @@ export class TripService {
     return this.http.get(`http://localhost:3000/trips/${id}`)
       .map((res: Response) => res.json());
   }
+
+
 }
