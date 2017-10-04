@@ -7,7 +7,11 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
+import { AuthService } from './services/auth.service';
 import { TripService } from './services/trip.service';
+
+import { RequireAuthService } from './guards/require-auth.service';
+
 
 import { AppComponent } from './app.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
@@ -24,11 +28,18 @@ import { SearchComponent } from './components/search/search.component';
 
 import { FileSelectDirective } from "ng2-file-upload";
 
+import { AuthLoginComponent } from './components/auth-login/auth-login.component';
+import { AuthLogoutComponent } from './components/auth-logout/auth-logout.component';
+import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
+import { AuthUserComponent } from './components/auth-user/auth-user.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'trips/:id', component: SingleTripPageComponent },
   { path: 'playground', component: PlaygroundComponent },
+  { path: 'auth/login', component: HomeComponent },
+  { path: 'auth/signup', component: HomeComponent },
 ];
 
 @NgModule({
@@ -44,7 +55,11 @@ const routes: Routes = [
     FileSelectDirective,
     CreateTripComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    AuthLoginComponent,
+    AuthLogoutComponent,
+    AuthSignupComponent,
+    AuthUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +70,7 @@ const routes: Routes = [
     BrowserAnimationsModule
   ],
   exports: [],
-  providers: [TripService],
+  providers: [TripService, AuthService, RequireAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
