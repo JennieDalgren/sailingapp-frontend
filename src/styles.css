@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-*, *:after, *:before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Helvetica;
-}
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/*UGLY THEMES
+indigo-pink
+deeppurple-amber
+purple-green
+pink-bluegrey
+*/

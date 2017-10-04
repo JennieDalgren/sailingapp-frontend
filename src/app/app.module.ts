@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
 
 
 import { TripService } from './services/trip.service';
@@ -20,10 +22,7 @@ import { PlaygroundComponent } from './pages/playground/playground.component';
 import { FileSelectDirective } from "ng2-file-upload";
 import { CreateTripComponent } from './components/create-trip/create-trip.component';
 import { HomeComponent } from './pages/home/home.component';
-
-import {MatListModule} from '@angular/material';
 import { SearchComponent } from './components/search/search.component';
-
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,13 +48,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    MatListModule
+    MaterialModule,
+    BrowserAnimationsModule
   ],
-  exports: [MatListModule],
+  exports: [],
   providers: [TripService],
   bootstrap: [AppComponent]
 })

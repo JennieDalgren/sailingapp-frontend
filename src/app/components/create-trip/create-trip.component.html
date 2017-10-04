@@ -1,4 +1,32 @@
-<p>
-  create-trip works!
-</p>
-<input type="date" >
+<h2>Create Trip</h2>
+
+<form class="create-trip" (ngSubmit)="handleCreateTripForm(myForm)" #myForm="ngForm" novalidate>
+  <label>Start Date</label>
+  <input type="date" name="startDate" #myStartDate=ngModel [(ngModel)]="startDate">
+  <br>
+  <label>End Date</label>
+  <input type="date" name="endDate" #myEndDate=ngModel [(ngModel)]="endDate">
+  <br>
+  <label>Start Location</label>
+  <input type="text" name="startLocation" #myStartLocation=ngModel [(ngModel)]="startLocation">
+  <br>
+  <label>End Location</label>
+  <input type="text" name="endLocation" #myEndLocation=ngModel [(ngModel)]="endLocation">
+  <br>
+  <label>Trip Name</label>
+  <input type="text" name="name" #myName=ngModel [(ngModel)]="name">
+  <br>
+  <label>Description</label>
+  <input type="text" name="description" #myDescription=ngModel [(ngModel)]="description">
+  <br>
+  <label>Price</label>
+  <input type="text" name="price" #myPrice=ngModel [(ngModel)]="price">
+  <br>
+  <label>Available Spots</label>
+  <input type="number" name="availableSpots" #myAvailableSpots=ngModel [(ngModel)]="availableSpots">
+  <br>
+  <label>Upload Photos</label>
+  <input type="text" name="photos">UPLOAD!!!
+  <br>
+  <button type="submit">Submit</button>
+</form>

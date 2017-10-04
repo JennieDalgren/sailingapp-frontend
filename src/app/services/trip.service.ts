@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TripService {
-
+  new: any = {};
 
   constructor(private http: Http) { }
 
@@ -20,5 +20,22 @@ export class TripService {
       .map((res: Response) => res.json());
   }
 
+  insertNew(myform) {
+    // this.new = {
+    //   'startDate': myform.startDate,
+    //   'endDate': myform.endDate,
+    //   'startLocation': myform.startLocation,
+    //   'endLocation': myform.endLocation,
+    //   'name': myform.name,
+    //   'description': myform.description,
+    //   'price': myform.price,
+    //   'availableSpots': myform.availableSpots,
+    // };
+
+    return this.http.post('http://localhost:3000/trips', myform )
+    .map((res: Response) => {
+       res.json()
+    })
+  }
 
 }
