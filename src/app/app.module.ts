@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-
-
 
 import { TripService } from './services/trip.service';
 
@@ -19,10 +18,11 @@ import { TripListComponent } from './components/trip-list/trip-list.component';
 import { SingleTripComponent } from './components/single-trip/single-trip.component';
 import { PlaygroundComponent } from './pages/playground/playground.component';
 
-import { FileSelectDirective } from "ng2-file-upload";
 import { CreateTripComponent } from './components/create-trip/create-trip.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+
+import { FileSelectDirective } from "ng2-file-upload";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

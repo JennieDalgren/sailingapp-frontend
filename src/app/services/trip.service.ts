@@ -20,21 +20,10 @@ export class TripService {
       .map((res: Response) => res.json());
   }
 
-  insertNew(myform) {
-    // this.new = {
-    //   'startDate': myform.startDate,
-    //   'endDate': myform.endDate,
-    //   'startLocation': myform.startLocation,
-    //   'endLocation': myform.endLocation,
-    //   'name': myform.name,
-    //   'description': myform.description,
-    //   'price': myform.price,
-    //   'availableSpots': myform.availableSpots,
-    // };
-
-    return this.http.post('http://localhost:3000/trips', myform )
+  insertNew(trip) {
+    return this.http.post('http://localhost:3000/trips', trip)
     .map((res: Response) => {
-       res.json()
+       return res.json()
     })
   }
 
