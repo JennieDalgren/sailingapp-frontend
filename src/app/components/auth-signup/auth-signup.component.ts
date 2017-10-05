@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
@@ -19,14 +20,20 @@ export class AuthSignupComponent {
   });
 
   error: string;
+  message: string;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   signup() {
-    this.error = null;
-    this.auth.signup(this.user).subscribe(
-      (user) => this.user = user,
-      (err) => this.error = err
-    );
-  }
+  this.error = null;
+  this.auth.signup(this.user).subscribe(
+    (user) => {
+      if(user.email){
+          this.user = user,
+          this.router.navigate(['/user']);
+      } else {this.message}
+    },
+    (err) => this.error = err
+  );
+}
 }
