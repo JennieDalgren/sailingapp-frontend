@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TripService } from '../../services/trip.service';
+import { environment } from '../../../environments/environment';
+
 
 
 @Component({
@@ -8,8 +10,10 @@ import { TripService } from '../../services/trip.service';
   styleUrls: ['./single-trip.component.scss']
 })
 export class SingleTripComponent implements OnInit {
+
   @Input() tripId: string;
   trip: Object = {};
+  apiUrl = environment.apiUrl;
 
   constructor(private TripService: TripService) { }
 

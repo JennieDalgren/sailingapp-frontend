@@ -1,14 +1,13 @@
-<div [ngClass]="{empty: loading, 'is-user': user, 'is-anon': anon}">
-  <div *ngIf="loading">
-    <span class="username text"></span>
-  </div>
-  <div *ngIf="!loading && user">
-    <span class="username text">{{user.name}}</span>
+<div [ngClass]="{'is-user': user}">
+
+  <div *ngIf="user">
+    <span class="username text">Hello {{user.name}}</span>
     <app-auth-logout></app-auth-logout>
   </div>
-  <div *ngIf="!loading && anon">
-    <a (click)="toggleForms()">login or signup</a>
-    <app-auth-login *ngIf="formsVisible"></app-auth-login>
-    <app-auth-signup *ngIf="formsVisible"></app-auth-signup>
+  <div *ngIf="!user">
+
+    <h4><a [routerLink]="['/login']">login</a></h4>
+    <h4><a [routerLink]="['/signup']">signup</a></h4>
+
   </div>
 </div>

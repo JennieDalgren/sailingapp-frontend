@@ -11,27 +11,23 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AuthUserComponent implements OnInit {
 
-  loading: boolean = true;
-  anon: boolean;
   user: User;
-  formsVisible: boolean = false;
+  // formsVisible: boolean = false;
 
   constructor(private authService: AuthService) { }
 
   private setUser(user: User | null) {
-    this.loading = false;
     this.user = user;
-    this.anon = !user;
   }
 
   ngOnInit() {
     this.authService.userChange$.subscribe((user) => {
-      this.setUser(user)
+      this.setUser(user);
     });
   }
 
-  toggleForms() {
-    this.formsVisible = !this.formsVisible;
-  }
+  // toggleForms() {
+  //   this.formsVisible = !this.formsVisible;
+  // }
 
 }

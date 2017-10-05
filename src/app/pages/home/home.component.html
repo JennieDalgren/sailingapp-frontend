@@ -1,6 +1,7 @@
 
 <header>
   <h1>Sailing App</h1>
+  <app-auth-user></app-auth-user>
 
 </header>
 
@@ -15,9 +16,3 @@
   <app-trip-list [trips]="trips"></app-trip-list>
   <p *ngIf="!trips.length">Nothing</p>
 </div>
-
-<h4><a [routerLink]="['/login']">login</a></h4>
-<h4><a [routerLink]="['/signup']">signup</a></h4>
-
-
-<app-auth-user></app-auth-user>
