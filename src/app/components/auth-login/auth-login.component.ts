@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
 
@@ -20,7 +19,6 @@ export class AuthLoginComponent {
   constructor(private auth: AuthService) { }
 
   login() {
-    console.log(this.user);
     this.error = null;
     this.auth.login(this.user).subscribe(
       (user) => this.user = user,

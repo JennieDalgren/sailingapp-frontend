@@ -2,6 +2,7 @@
 
 <form class="create-trip" (ngSubmit)="handleCreateTripForm(myForm)" #myForm="ngForm" novalidate>
   <input type="text" name="photo" [(ngModel)]="formData.fileName" />
+  
   <div class="field">
     <label>Start Date</label>
     <input type="date" name="startDate" #myStartDate=ngModel [(ngModel)]="formData.startDate">

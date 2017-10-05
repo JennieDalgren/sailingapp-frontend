@@ -32,14 +32,17 @@ import { AuthLoginComponent } from './components/auth-login/auth-login.component
 import { AuthLogoutComponent } from './components/auth-logout/auth-logout.component';
 import { AuthSignupComponent } from './components/auth-signup/auth-signup.component';
 import { AuthUserComponent } from './components/auth-user/auth-user.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'user', component: UserPageComponent },
   { path: 'trips/:id', component: SingleTripPageComponent },
   { path: 'playground', component: PlaygroundComponent },
-  { path: 'auth/login', component: HomeComponent },
-  { path: 'auth/signup', component: HomeComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'signup', component: SignupPageComponent },
 ];
 
 @NgModule({
@@ -60,6 +63,8 @@ const routes: Routes = [
     AuthLogoutComponent,
     AuthSignupComponent,
     AuthUserComponent,
+    SignupPageComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,3 +79,37 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+//
+//
+//
+// import { NgModule } from '@angular/core';
+//
+// import {
+//   MatButtonModule,
+//   MatMenuModule,
+//   MatToolbarModule,
+//   MatIconModule,
+//   MatCardModule
+// } from '@angular/material';
+//
+// @NgModule({
+//   imports: [
+//     MatButtonModule,
+//     MatMenuModule,
+//     MatToolbarModule,
+//     MatIconModule,
+//     MatCardModule
+//   ],
+//   exports: [
+//     MatButtonModule,
+//     MatMenuModule,
+//     MatToolbarModule,
+//     MatIconModule,
+//     MatCardModule
+//   ]
+// })
+// export class MaterialModule {}
+//

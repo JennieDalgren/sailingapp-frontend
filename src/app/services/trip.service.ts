@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -11,17 +11,23 @@ export class TripService {
   constructor(private http: Http) { }
 
   getTripList(){
-    return this.http.get('http://localhost:3000/trips/')
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get('http://localhost:3000/trips/', options)
       .map((res: Response) => res.json());
   }
 
   getTrip(id: string){
-    return this.http.get(`http://localhost:3000/trips/${id}`)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(`http://localhost:3000/trips/${id}`, options)
       .map((res: Response) => res.json());
   }
 
   insertNew(trip) {
-    return this.http.post('http://localhost:3000/trips', trip)
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.post('http://localhost:3000/trips', trip, options)
     .map((res: Response) => {
        return res.json()
     })

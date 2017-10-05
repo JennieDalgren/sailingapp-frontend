@@ -16,10 +16,8 @@
   <p *ngIf="!trips.length">Nothing</p>
 </div>
 
-<h4>login</h4>
-<app-auth-login></app-auth-login>
+<h4><a [routerLink]="['/login']">login</a></h4>
+<h4><a [routerLink]="['/signup']">signup</a></h4>
 
-<h4>signup</h4>
-<app-auth-signup></app-auth-signup>
 
 <app-auth-user></app-auth-user>

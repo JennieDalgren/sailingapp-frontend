@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     this.tripService.getTripList().subscribe((list) => {
       const myPattern = new RegExp(searchTerm, 'i');
       this.trips = list.filter((item) => item.startLocation.match(myPattern));
+
     })
   }
 
