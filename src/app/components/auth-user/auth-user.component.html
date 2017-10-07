@@ -3,14 +3,13 @@
 <div [ngClass]="{'is-user': user}">
 
   <div *ngIf="user">
-    <span class="username text">Hello {{user.name}}</span>
-    <h4><a [routerLink]="['/user']">My Dashboard</a></h4>
-    <app-auth-logout></app-auth-logout>
+    <a [routerLink]="['/user']">
+    <span class="username text">{{user.name}}</span></a>
+    <img src="{{user.photo}}">
   </div>
+
   <div *ngIf="!user">
-
     <h4><a [routerLink]="['/login']">login</a></h4>
-    <h4><a [routerLink]="['/signup']">signup</a></h4>
-
   </div>
+
 </div>

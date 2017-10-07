@@ -1,6 +1,9 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { TripService } from '../../services/trip.service';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
+
 
 @Component({
   selector: 'app-user-page',
@@ -11,10 +14,12 @@ export class UserPageComponent implements OnInit {
   userId: string;
   trips: Object[];
 
-
-  constructor(private tripService: TripService) { }
+  user: User;
+  subscriptions = [];
+  constructor(private tripService: TripService, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
+
     // let tripSubscription = this.ActivatedRoute.params.subscribe(params=>this.tripId = params['id']);
     // this.tripService.getHostedTrips()
     //   .subscribe((data) => {

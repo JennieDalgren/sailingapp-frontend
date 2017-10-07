@@ -24,6 +24,7 @@ export class AuthUserComponent implements OnInit {
     this.authService.userChange$.subscribe((user) => {
       this.setUser(user);
     });
+    
   }
 
   // toggleForms() {

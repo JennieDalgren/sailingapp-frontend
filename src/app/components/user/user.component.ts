@@ -16,17 +16,20 @@ const URL = environment.apiUrl + '/auth/upload/';
 })
 export class UserComponent implements OnInit {
   @Input() userId;
+  apiUrl = environment.apiUrl;
+
+  update: boolean = false;
   file: any;
   uploadRequired: boolean;
-  userData: Object;
+
+  user: User;
+  subscriptions = [];
 
   userFormData = {
     username: '',
     bio: '',
     phoneNumber: '',
-    email: '',
-    paymentInfo: '',
-    userFileName: null,
+    userFileName: '',
   };
 
   public uploader: FileUploader = new FileUploader({url: URL})
@@ -42,6 +45,14 @@ export class UserComponent implements OnInit {
     this.uploader.onErrorItem = (item, response, status, headers) => {
       this.feedback = JSON.parse(response).message;
     };
+
+    this.user = this.authService.getUser();
+    let subscription = this.authService.userChange$.subscribe((user) => this.user = user);
+    this.subscriptions.push(subscription);
+  }
+
+  toggleForm() {
+    this.update = !this.update;
   }
 
   private submit() {
@@ -51,21 +62,23 @@ export class UserComponent implements OnInit {
 
   // onFileChange() { this.uploadRequired = false; }
 
-    handleUpdateUserForm(myForm) {
+  handleUpdateUserForm(myForm) {
 
-      const files = this.uploader.getNotUploadedItems();
-      if (!files.length) {
-        this.uploadRequired = true;
-        return;
-      }
-
-      this.uploader.uploadAll();
-
-      this.uploader.onCompleteItem = (item, response) => {
-        let data = JSON.parse(response);
-        this.userFormData.userFileName = data.userFileName;
-        this.submit();
-      }
+    const files = this.uploader.getNotUploadedItems();
+    if (!files.length) {
+      this.uploadRequired = true;
+      return;
     }
+
+    this.uploader.uploadAll();
+
+    this.uploader.onCompleteItem = (item, response) => {
+      let data = JSON.parse(response);
+      this.userFormData.userFileName = data.userFileName;
+      this.submit();
+      this.toggleForm();
+    }
+  }
+
 
 }
