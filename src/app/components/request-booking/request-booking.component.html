@@ -1,0 +1,18 @@
+
+
+<h2>Time to book this trip</h2>
+
+<form class="request-booking" (ngSubmit)="handleRequestBooking(bookingForm)" #bookingForm="ngForm" novalidate>
+
+  <div class="field">
+    <label>How many guests do you want to book for?</label>
+    <input type="number" name="guestCount" #myGuestCount=ngModel [(ngModel)]="bookingFormData.guestCount">
+      <label>Write a message</label>
+    <input type="text" name="message" #myMessage=ngModel [(ngModel)]="bookingFormData.message">
+  </div>
+
+  <div class="field">
+    <button type="submit">Send Request</button>
+  </div>
+
+</form>

@@ -1,7 +1,10 @@
+
+
 <div [ngClass]="{'is-user': user}">
 
   <div *ngIf="user">
     <span class="username text">Hello {{user.name}}</span>
+    <h4><a [routerLink]="['/user']">My Dashboard</a></h4>
     <app-auth-logout></app-auth-logout>
   </div>
   <div *ngIf="!user">

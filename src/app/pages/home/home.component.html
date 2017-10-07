@@ -2,17 +2,34 @@
 <header>
   <h1>Sailing App</h1>
   <app-auth-user></app-auth-user>
-
 </header>
-
 
 <div *ngIf="loading">
   ...
 </div>
 
+
 <div *ngIf="!loading">
   <app-search (onSearchUpdated)="handleSearchUpdated($event)"></app-search>
 
   <app-trip-list [trips]="trips"></app-trip-list>
-  <p *ngIf="!trips.length">Nothing</p>
+  <p *ngIf="!trips.length">No matches</p>
 </div>
+
+
+<!-- <div *ngIf="!loading" && "user">
+  <app-auth-user></app-auth-user>
+
+
+  <app-create-trip></app-create-trip>
+
+  <h3>My hosted trips</h3>
+  <app-trip-list></app-trip-list>
+   GET THIS TO WORK!!!
+
+
+
+  <h3>My trips as a guest</h3>
+  <app-trip-list [attending]="attending"></app-trip-list>
+
+</div> -->

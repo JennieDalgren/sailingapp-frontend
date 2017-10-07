@@ -35,5 +35,5 @@ export class AuthSignupComponent {
     },
     (err) => this.error = err
   );
-}
+  }
 }

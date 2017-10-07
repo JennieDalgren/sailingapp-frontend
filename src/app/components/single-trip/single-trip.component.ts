@@ -14,6 +14,7 @@ export class SingleTripComponent implements OnInit {
   @Input() tripId: string;
   trip: Object = {};
   apiUrl = environment.apiUrl;
+  booked: boolean = false;
 
   constructor(private TripService: TripService) { }
 

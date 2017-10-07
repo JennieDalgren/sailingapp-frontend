@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
+import { environment } from '../../../environments/environment';
 
 
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload.js';
 
-const baseUrl = 'http://localhost:3000';
-const URL = baseUrl + '/trips/upload/';
+const URL = environment.apiUrl + '/trips/upload/';
 
 @Component({
   selector: 'app-create-trip',
@@ -24,12 +24,12 @@ export class CreateTripComponent implements OnInit {
     endDate: null,
     startLocation: '',
     endLocation: '',
+    boat: '',
     name: '',
     desciption: '',
     price: '',
     availableSpots: 1,
-    fileName: null
-
+    fileName: null,
   };
 
   public uploader: FileUploader = new FileUploader({url: URL})
@@ -56,12 +56,8 @@ export class CreateTripComponent implements OnInit {
   }
 
   private submit() {
-  
-    this.tripService.insertNew(this.formData).
-     subscribe((newTrip) => {
-       //navigate (router go((['/trips', newTrip.id])))
-       console.log('router go to /trips', newTrip.id, 'pleäse!');
-     })
+
+    this.tripService.insertNew(this.formData).subscribe();
   }
 
   // onFileChange() { this.uploadRequired = false; }

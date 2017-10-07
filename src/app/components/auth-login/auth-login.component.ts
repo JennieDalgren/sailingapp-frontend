@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-auth-login',
@@ -15,14 +17,21 @@ export class AuthLoginComponent {
   });
 
   error: string;
+  message: string;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   login() {
     this.error = null;
     this.auth.login(this.user).subscribe(
-      (user) => this.user = user,
+      (user) => {
+        if(user.email){
+            this.user = user,
+            this.router.navigate(['/user']);
+        } else {this.message}
+      },
       (err) => this.error = err
     );
   }
+
 }

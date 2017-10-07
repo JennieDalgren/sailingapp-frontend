@@ -28,6 +28,10 @@ export class AuthService {
     this.userChange.next(user);
   }
 
+  getUser() : User {
+    return this.user;
+  }
+
   signup(user: User) {
     let options = new RequestOptions();
     options.withCredentials = true;

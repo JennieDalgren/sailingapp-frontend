@@ -9,12 +9,12 @@ import { MaterialModule } from './material.module';
 
 import { AuthService } from './services/auth.service';
 import { TripService } from './services/trip.service';
+import { UserService } from './services/user.service';
 
 import { RequireAuthService } from './guards/require-auth.service';
 
 
 import { AppComponent } from './app.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { SingleTripPageComponent } from './pages/single-trip-page/single-trip-page.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserComponent } from './components/user/user.component';
@@ -34,6 +34,7 @@ import { AuthSignupComponent } from './components/auth-signup/auth-signup.compon
 import { AuthUserComponent } from './components/auth-user/auth-user.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RequestBookingComponent } from './components/request-booking/request-booking.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -48,7 +49,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CreateAccountComponent,
     SingleTripPageComponent,
     UserPageComponent,
     UserComponent,
@@ -65,6 +65,7 @@ const routes: Routes = [
     AuthUserComponent,
     SignupPageComponent,
     LoginPageComponent,
+    RequestBookingComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,7 @@ const routes: Routes = [
     BrowserAnimationsModule
   ],
   exports: [],
-  providers: [TripService, AuthService, RequireAuthService],
+  providers: [TripService, AuthService, RequireAuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

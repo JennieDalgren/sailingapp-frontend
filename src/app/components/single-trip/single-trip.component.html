@@ -1,5 +1,6 @@
 
 <a [routerLink]="['/']">Back</a>
+<app-auth-user></app-auth-user>
 
 <div class="trip" *ngIf="!trip">
   ...
@@ -7,9 +8,14 @@
 
 <div class="trip" *ngIf="trip">
   <h2>{{trip.name}}</h2>
+  <img src="{{apiUrl+trip.photos}}" alt="">
+  <p>FROM: {{trip.startLocation}} on {{trip.startDate | date:"mediumDate"}}</p>
+  <p>TO: {{trip.endLocation}} on {{trip.endDate | date:"mediumDate"}}</p>
+  <p>{{trip.price}} €</p>
   <p>{{trip.description}}</p>
-  <p>{{trip.price}}</p>
-  <img src="{{apiUrl}}{{trip.photos[0]}}" alt="">
-
+  <p>{{trip.host?.name}}</p>
 
 </div>
+
+
+<app-request-booking [tripId]="tripId"></app-request-booking>

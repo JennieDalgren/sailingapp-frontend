@@ -27,10 +27,33 @@ export class TripService {
   insertNew(trip) {
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.post('http://localhost:3000/trips', trip, options)
+    return this.http.post('http://localhost:3000/trips/', trip, options)
     .map((res: Response) => {
        return res.json()
     })
+  }
+
+  requestBooking(booking, bookingId) {
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.post(`http://localhost:3000/trips/${bookingId}`, booking, options)
+    .map((res: Response) => {
+       return res.json()
+    })
+  }
+
+  getHostedTrips(){
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get('http://localhost:3000/trips/hosted', options)
+      .map((res: Response) => res.json());
+  }
+  
+  getAttendingTrips(){
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get('http://localhost:3000/trips/attending', options)
+      .map((res: Response) => res.json());
   }
 
 }

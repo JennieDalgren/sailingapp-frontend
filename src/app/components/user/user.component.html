@@ -1,3 +1,38 @@
-<p>
-  user works!
-</p>
+
+
+<form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate>
+
+  <input type="text" name="userphoto" [(ngModel)]="userFormData.userFileName" id="secret-input"/>
+
+  <div class="field">
+    <label>Name</label>
+    <input type="text" name="username" #myUserName=ngModel [(ngModel)]="userFormData.username">
+  </div>
+
+  <div class="field">
+    <label>Bio</label>
+    <input type="text" name="bio" #myBio=ngModel [(ngModel)]="userFormData.bio">
+  </div>
+
+  <div class="field">
+    <label>Phone Number</label>
+    <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="userFormData.phoneNumber">
+  </div>
+
+
+  <!-- <div class="field">
+    <label>Payment Info</label>
+    <input type="text" name="paymentInfo" #myPaymentInfo=ngModel [(ngModel)]="userFormData.paymentInfo">
+  </div> -->
+
+  <div class="field" [ngClass]="{'has-error': uploadRequired}">
+    <label>Upload Photo</label>
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+    <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
+  </div>
+
+  <div class="field">
+    <button type="submit">Submit</button>
+  </div>
+
+</form>
