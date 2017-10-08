@@ -10,6 +10,12 @@ $bold: 600;
 .title {
   color: $dark;
   font-size: 14px;
+  text-decoration: none;
+}
+
+.title:hover {
+  color: $dark;
+  text-decoration: underline;
 }
 
 .user-photo {

@@ -3,13 +3,12 @@
 <div [ngClass]="{'is-user': user}">
 
   <div *ngIf="user">
-    <a [routerLink]="['/user']">
-    <span class="title">{{user.name}}</span></a>
+    <a class="title"[routerLink]="['/user']">{{user.name}}</a>
     <div class="user-photo" style="background-img: url('{{user.photo}}')"></div>
   </div>
 
   <div *ngIf="!user">
-    <span class="title"><a [routerLink]="['/login']">login</a></span>
+    <a class="title"[routerLink]="['/login']">login</a>
   </div>
 
 </div>
