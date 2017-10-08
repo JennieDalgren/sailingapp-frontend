@@ -1,8 +1,23 @@
+$primary: #34A3DA;
+$gray: #a3a3a3;
+$white: #FFF;
+$dark: #333;
+
+$normal: 400;
+$medium: 500;
+$bold: 600;
+
 
 header {
-  background-color: darkblue;
-  width: 100%;
-  color: white;
-  height: 15%;
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+  padding: 30px 20px 0 20px;
+}
+
+.logo {
+  color: $primary;
+  font-weight: $bold;
+  font-size: 18px;
 }

@@ -4,12 +4,12 @@
 
   <div *ngIf="user">
     <a [routerLink]="['/user']">
-    <span class="username text">{{user.name}}</span></a>
-    <img src="{{user.photo}}">
+    <span class="title">{{user.name}}</span></a>
+    <div class="user-photo" style="background-img: url('{{user.photo}}')"></div>
   </div>
 
   <div *ngIf="!user">
-    <h4><a [routerLink]="['/login']">login</a></h4>
+    <span class="title"><a [routerLink]="['/login']">login</a></span>
   </div>
 
 </div>

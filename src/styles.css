@@ -1,10 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+body {
+  margin:0px;
+  padding: 0px;
+  font-family: "Graphik", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 
-/*UGLY THEMES
-indigo-pink
-deeppurple-amber
-purple-green
-pink-bluegrey
-*/
+*{
+  box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Graphik;
+    font-weight: 400;
+    src: url("assets/font/Graphik-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Graphik;
+    font-weight: 500;
+    src: url("assets/font/Graphik-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Graphik;
+    font-weight: 600;
+    src: url("assets/font/Graphik-Semibold.otf") format("opentype");
+}

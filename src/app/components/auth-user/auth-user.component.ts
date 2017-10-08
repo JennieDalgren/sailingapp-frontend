@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-auth-user',
   templateUrl: './auth-user.component.html',
-  styleUrls: ['./auth-user.component.css']
+  styleUrls: ['./auth-user.component.scss']
 })
 export class AuthUserComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class AuthUserComponent implements OnInit {
     this.authService.userChange$.subscribe((user) => {
       this.setUser(user);
     });
-    
+
   }
 
   // toggleForms() {

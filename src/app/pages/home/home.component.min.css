@@ -1,1 +1,1 @@
-header{background-color:darkblue;width:100%;color:white;height:15%;padding:20px}
+header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;padding:30px 20px 0 20px}.logo{color:#34A3DA;font-weight:600;font-size:18px}

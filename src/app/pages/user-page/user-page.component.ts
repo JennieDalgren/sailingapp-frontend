@@ -15,7 +15,7 @@ export class UserPageComponent implements OnInit {
 
   tab = 3;
 
-  handleSetTab(num: number) {
+  setTab(num: number) {
     this.tab = num;
   }
 
