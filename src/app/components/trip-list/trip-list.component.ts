@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-trip-list',
@@ -7,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TripListComponent implements OnInit {
   @Input() trips: Object[];
+  apiUrl = environment.apiUrl;
 
   constructor() { }
 

@@ -8,6 +8,7 @@ $medium: 500;
 $bold: 600;
 
 .search-bar {
+  margin: 0 20px;
   margin-bottom: 30px;
 }
 
@@ -22,6 +23,7 @@ $bold: 600;
   border-bottom: 1px solid $gray;
   outline: none;
   -webkit-transition: border 200ms, color 200ms;
+  box-sizing: border-box;
 }
 
 .search:focus {
