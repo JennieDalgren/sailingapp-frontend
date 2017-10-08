@@ -17,6 +17,7 @@ const URL = environment.apiUrl + '/auth/upload/';
 export class UserComponent implements OnInit {
   @Input() userId;
   apiUrl = environment.apiUrl;
+  userData: Object;
 
   update: boolean = false;
   file: any;
@@ -29,7 +30,7 @@ export class UserComponent implements OnInit {
     username: '',
     bio: '',
     phoneNumber: '',
-    userFileName: '',
+    userFileName: null,
   };
 
   public uploader: FileUploader = new FileUploader({url: URL})

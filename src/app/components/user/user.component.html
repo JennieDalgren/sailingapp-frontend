@@ -40,13 +40,13 @@
       </div>
     </form></div>
     <div *ngIf="!update">
-      <p>here we will show the user details. Like we can see other persons user page</p>
+      <h3>user details here</h3>
       <p>{{user.name}}</p>
       <p>{{user.bio}}</p>
       <p>{{user.email}}</p>
       <p>{{user.phoneNumber}}</p>
-      <img src="{{apiUrl+user.photo}}"/>
-      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I'm%20interested%20in%20your%20car%20for%20sale">send msg</a>
+      <img src="{{apiUrl+user.photo}}" >
+      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I'm%20interested%20in%20your%20car%20for%20sale">send msg test</a>
 
       <button (click)="toggleForm()">update profile</button>
     </div>

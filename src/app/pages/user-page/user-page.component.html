@@ -1,5 +1,20 @@
-<h1>User Page</h1>
-<h3>Info about the user.</h3>
-<h3>Possibility to edit or add?</h3>
-<app-auth-user></app-auth-user>
-<app-user [userId]="userId"></app-user>
+<h1>My User Page</h1>
+
+<div class="tabs-selection">
+  <button (click)="setTab(1)">Trips I'm hosting</button>
+  <button (click)="setTab(2)">Trips I'm joining</button>
+  <button (click)="setTab(3)">Profile</button>
+</div>
+
+<div [ngSwitch]="tab">
+  <h3 *ngSwitchCase="1">Trips I'm hosting (list should filter on my hosting trips)</h3>
+  <app-trip-list [trips]="trips" *ngSwitchCase="1"></app-trip-list>
+  <a [routerLink]="['/create']" *ngSwitchCase="1">Create Trip</a>
+
+  <h3 *ngSwitchCase="2">Trips I'm joining (list should filter on my attending trips)</h3>
+  <app-trip-list [trips]="trips" *ngSwitchCase="2"></app-trip-list>
+  <a [routerLink]="['/home']" *ngSwitchCase="2">Find Trip</a>
+
+  <h3 *ngSwitchCase="3">My Profile where I can update my info</h3>
+  <app-user *ngSwitchCase="3">My Profile</app-user>
+</div>

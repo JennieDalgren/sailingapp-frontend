@@ -3,7 +3,7 @@ import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 import { environment } from '../../../environments/environment';
-
+import { Router } from '@angular/router';
 
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload.js';
 
@@ -35,7 +35,7 @@ export class CreateTripComponent implements OnInit {
   public uploader: FileUploader = new FileUploader({url: URL})
   feedback: string;
 
-  constructor(private tripService: TripService, private authService: AuthService) { }
+  constructor(private tripService: TripService, private authService: AuthService, private router: Router) { }
 
   // private setUser(user: User | null) {
   //   this.user = user;
@@ -76,6 +76,7 @@ export class CreateTripComponent implements OnInit {
         let data = JSON.parse(response);
         this.formData.fileName = data.fileName;
         this.submit();
+        this.router.navigate(['/user']);
       }
     }
 

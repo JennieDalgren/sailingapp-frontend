@@ -35,10 +35,12 @@ import { AuthUserComponent } from './components/auth-user/auth-user.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RequestBookingComponent } from './components/request-booking/request-booking.component';
+import { CreateTripPageComponent } from './pages/create-trip-page/create-trip-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'create', component: CreateTripPageComponent },
   { path: 'user', component: UserPageComponent },
   { path: 'trips/:id', component: SingleTripPageComponent },
   { path: 'playground', component: PlaygroundComponent },
@@ -66,6 +68,7 @@ const routes: Routes = [
     SignupPageComponent,
     LoginPageComponent,
     RequestBookingComponent,
+    CreateTripPageComponent,
   ],
   imports: [
     BrowserModule,
