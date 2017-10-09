@@ -50,9 +50,6 @@ export class CreateTripComponent implements OnInit {
       this.feedback = JSON.parse(response).message;
     };
 
-    // this.authService.userChange$.subscribe((user) => {
-    //   this.setUser(user)
-    // });
   }
 
   private submit() {
@@ -60,7 +57,6 @@ export class CreateTripComponent implements OnInit {
     this.tripService.insertNew(this.formData).subscribe();
   }
 
-  // onFileChange() { this.uploadRequired = false; }
 
     handleCreateTripForm(myForm) {
 

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { UserService } from '../../services/user.service';
 
 import { User } from '../../models/user.model';
 import { environment } from '../../../environments/environment';
@@ -20,6 +19,7 @@ export class UserComponent implements OnInit {
   userData: Object;
 
   update: boolean = false;
+  saving: boolean = false;
   file: any;
   uploadRequired: boolean;
 
@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
   public uploader: FileUploader = new FileUploader({url: URL})
   feedback: string;
 
-  constructor(private userService: UserService, private authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
@@ -57,8 +57,11 @@ export class UserComponent implements OnInit {
   }
 
   private submit() {
-
-    this.userService.updateUser(this.userId, this.userFormData).subscribe();
+    this.saving = true;
+    this.authService.updateUser(this.userFormData).subscribe(() => {
+      this.saving = false;
+      this.toggleForm();
+    });
   }
 
   // onFileChange() { this.uploadRequired = false; }
@@ -77,7 +80,6 @@ export class UserComponent implements OnInit {
       let data = JSON.parse(response);
       this.userFormData.userFileName = data.userFileName;
       this.submit();
-      this.toggleForm();
     }
   }
 

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
+import { environment } from '../../../environments/environment';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+
+const apiUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-auth-user',
@@ -11,6 +14,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AuthUserComponent implements OnInit {
 
+  apiUrl = apiUrl;
   user: User;
   // formsVisible: boolean = false;
 

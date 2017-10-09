@@ -10,10 +10,10 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  updateUser(userId, user){
+  updateUser(user){
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.post('http://localhost:3000/auth/{$userId}', user, options)
+    return this.http.put('http://localhost:3000/auth/me', user, options)
     .map((res: Response) => {
        return res.json()
     })

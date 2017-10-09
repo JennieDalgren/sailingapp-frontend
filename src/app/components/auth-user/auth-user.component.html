@@ -4,7 +4,7 @@
 
   <div *ngIf="user">
     <a class="title"[routerLink]="['/user']">{{user.name}}</a>
-    <div class="user-photo" style="background-img: url('{{user.photo}}')"></div>
+    <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
   </div>
 
   <div *ngIf="!user">

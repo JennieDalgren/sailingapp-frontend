@@ -3,49 +3,49 @@
 <div *ngIf="user">
   <app-auth-logout></app-auth-logout>
   <div class="user-page">
-    <div *ngIf="update"><form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate>
+    <div *ngIf="update">
+      <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
 
-      <input type="text" name="userFileName" [(ngModel)]="userFormData.userFileName" id="secret-input"/>
+        <input type="hidden" name="userFileName" [(ngModel)]="userFormData.userFileName" id="secret-input" />
 
-      <div class="field" [ngClass]="{'has-error': uploadRequired}">
-        <label>Upload Photo</label>
-        <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-        <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
-      </div>
+        <div class="field" [ngClass]="{'has-error': uploadRequired}">
+          <label>Upload Photo</label>
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
+          <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
+        </div>
 
+        <div class="field">
+          <label>Update Name</label>
+          <input type="text" name="username" #myUserName=ngModel [(ngModel)]="userFormData.username" [disabled]="saving" />
+        </div>
 
+        <div class="field">
+          <label>Update Bio</label>
+          <input type="text" name="bio" #myBio=ngModel [(ngModel)]="userFormData.bio" [disabled]="saving" />
+        </div>
 
-      <div class="field">
-        <label>Update Name</label>
-        <input type="text" name="username" #myUserName=ngModel [(ngModel)]="userFormData.username" value="{{user.name}}" placeholder="{{user.name}}">
-      </div>
+        <div class="field">
+          <label>Update Phone Number</label>
+          <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="userFormData.phoneNumber" [disabled]="saving" />
+        </div>
 
-      <div class="field">
-        <label>Update Bio</label>
-        <input type="text" name="bio" #myBio=ngModel [(ngModel)]="userFormData.bio" value="{{user.bio}}" placeholder="{{user.bio}}">
-      </div>
+        <!-- <div class="field">
+          <label>Payment Info</label>
+          <input type="text" name="paymentInfo" #myPaymentInfo=ngModel [(ngModel)]="userFormData.paymentInfo">
+        </div> -->
 
-      <div class="field">
-        <label>Update Phone Number</label>
-        <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="userFormData.phoneNumber" value="{{user.phoneNumber}}" placeholder="{{user.phoneNumber}}">
-      </div>
-
-      <!-- <div class="field">
-        <label>Payment Info</label>
-        <input type="text" name="paymentInfo" #myPaymentInfo=ngModel [(ngModel)]="userFormData.paymentInfo">
-      </div> -->
-
-      <div class="field">
-        <button type="submit">Submit</button>
-      </div>
-    </form></div>
+        <div class="field">
+          <button type="submit" [disabled]="saving">Submit</button>
+        </div>
+      </form>
+    </div>
     <div *ngIf="!update">
       <h3>user details here</h3>
       <p>{{user.name}}</p>
       <p>{{user.bio}}</p>
       <p>{{user.email}}</p>
       <p>{{user.phoneNumber}}</p>
-      <img src="{{apiUrl+user.photo}}" >
+      <img [src]="apiUrl + user.photo">
       <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I'm%20interested%20in%20your%20car%20for%20sale">send msg test</a>
 
       <button (click)="toggleForm()">update profile</button>

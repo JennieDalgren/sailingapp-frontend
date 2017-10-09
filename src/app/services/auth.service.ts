@@ -85,4 +85,15 @@ export class AuthService {
       this.me().subscribe();
     }
   }
+
+  updateUser(user){
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.put(apiUrl + '/me', user, options)
+    .map((res: Response) => {
+      let user = new User(res.json());
+      this.setUser(user);
+      return user;
+    })
+  }
 }
