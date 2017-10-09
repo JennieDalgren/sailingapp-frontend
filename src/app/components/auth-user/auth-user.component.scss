@@ -4,6 +4,7 @@
   color: $dark;
   font-size: 14px;
   text-decoration: none;
+  margin-right: 12px;
 }
 
 .title:hover {
@@ -16,4 +17,9 @@
   height: 36px;
   border-radius: 4px;
   background-color: $gray;
+}
+
+.user {
+  display: flex;
+  align-items: center;
 }

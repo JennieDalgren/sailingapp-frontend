@@ -2,8 +2,8 @@
 
 <div [ngClass]="{'is-user': user}">
 
-  <div *ngIf="user">
-    <a class="title"[routerLink]="['/user']">{{user.name}}</a>
+  <div *ngIf="user" class="user">
+    <div><a class="title"[routerLink]="['/user']">{{user.name}}</a></div>
     <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
   </div>
 

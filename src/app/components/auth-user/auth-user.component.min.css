@@ -1,1 +1,1 @@
-.title{color:#333;font-size:14px;text-decoration:none}.title:hover{color:#333;text-decoration:underline}.user-photo{width:36px;height:36px;border-radius:4px;background-color:#a3a3a3}
+.title{color:#333;font-size:14px;text-decoration:none;margin-right:12px}.title:hover{color:#333;text-decoration:underline}.user-photo{width:36px;height:36px;border-radius:4px;background-color:#a3a3a3}.user{display:flex;align-items:center}
