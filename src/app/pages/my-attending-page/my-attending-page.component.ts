@@ -14,9 +14,8 @@ export class MyAttendingPageComponent implements OnInit {
   trips: Object[];
   tripId: string;
   userId: string;
-  hosted: Object;
   attending: Object;
-
+  loading: boolean = true;
   user: User;
   subscriptions = [];
 
@@ -26,9 +25,11 @@ export class MyAttendingPageComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
+    this.tripService.setTrip();
     this.tripService.getAttendingTrips()
       .subscribe((data) => {
         this.attending = data;
+        this.loading = false;
     });
   }
 

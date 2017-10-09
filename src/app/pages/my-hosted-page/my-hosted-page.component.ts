@@ -3,6 +3,7 @@ import { TripService } from '../../services/trip.service';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
+import { Trip } from '../../models/trip.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,8 +16,8 @@ export class MyHostedPageComponent implements OnInit {
   tripId: string;
   userId: string;
   hosted: Object;
-  attending: Object;
-
+  loading: boolean = true;
+  trip: Trip;
   user: User;
   subscriptions = [];
 
@@ -26,9 +27,11 @@ export class MyHostedPageComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
+    this.tripService.setTrip()
     this.tripService.getHostedTrips()
       .subscribe((data) => {
         this.hosted = data;
+        this.loading = false;
     });
   }
 

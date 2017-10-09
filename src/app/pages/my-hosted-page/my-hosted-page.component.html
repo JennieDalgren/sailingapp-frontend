@@ -2,7 +2,12 @@
 <app-header></app-header>
 <app-user-nav></app-user-nav>
 
+<div *ngIf="loading">
+  ...
+</div>
 
-<h3>Trips I'm hosting (list should filter on my hosting trips)</h3>
-<app-trip-list [trips]="hosted"></app-trip-list>
-<a class="button" [routerLink]="['/create']" >Create Trip</a>
+<div *ngIf="!loading">
+  <h3>Trips I'm hosting (list should filter on my hosting trips)</h3>
+  <app-trip-list [trips]="hosted"></app-trip-list>
+  <a class="button" [routerLink]="['/create']" >Create Trip</a>
+</div>
