@@ -1,0 +1,44 @@
+@import '../../../variables';
+
+.tabs-selection {
+  border-bottom: solid 1px $gray;
+  margin: 0 20px;
+  padding-bottom: 8px;
+  margin-bottom: 32px;
+}
+
+.tabs-selection a {
+  cursor: pointer;
+  margin-right: 20px;
+  color: $gray;
+  text-decoration: none;
+}
+
+.tabs-selection a:hover, .tabs-selection a:active {
+  color: $dark;
+  font-weight: $bold;
+}
+
+.container {
+  margin: 0 20px;
+}
+
+.button {
+  background-color: $primary;
+  color: $white;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $bold;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  display: block;
+  width: 100%;
+  -webkit-transition: background-color 200ms;
+}
+
+.button:hover {
+  background-color: #333;
+}

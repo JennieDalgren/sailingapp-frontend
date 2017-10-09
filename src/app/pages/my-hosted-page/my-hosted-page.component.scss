@@ -1,0 +1,22 @@
+@import '../../../variables';
+
+.button {
+  background-color: $primary;
+  color: $white;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $bold;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 86%;
+  -webkit-transition: background-color 200ms;
+}
+
+.button:hover {
+  background-color: #333;
+}

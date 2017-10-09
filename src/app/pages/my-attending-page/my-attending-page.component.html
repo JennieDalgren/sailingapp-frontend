@@ -6,7 +6,10 @@
 </div>
 
 <div *ngIf="!loading">
-  <h3>Trips I'm joining (list should filter on my attending trips)</h3>
-  <app-trip-list [trips]="attending"></app-trip-list>
-  <a class="button" [routerLink]="['/home']">Find Trip</a>
+  <div class="container">
+    <img src="../../../assets/images/compass.png" width="251">
+    <h3>You have not booked any trip</h3>
+    <!-- <app-trip-list [trips]="attending"></app-trip-list> -->
+    <a class="button" [routerLink]="['/home']">Find Trip</a>
+  </div>
 </div>

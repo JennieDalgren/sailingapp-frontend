@@ -1,8 +1,40 @@
 <div *ngIf="!user">...</div>
 
 <div *ngIf="user">
-  <app-auth-logout></app-auth-logout>
+
   <div class="user-page">
+
+
+    <div *ngIf="!update">
+
+      <div class="user-header-big">
+        <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
+        <h2 class="user-name">{{user.name}}</h2>
+        <button (click)="toggleForm()">update profile</button>
+      </div>
+
+      <div class="bio">
+        <p>{{user.bio}}</p>
+
+        <div class="bio-item">
+          <span class="bio-label">email</span>
+          <span class="bio-data">{{user.email}}</span>
+        </div>
+
+        <div class="bio-item">
+          <span class="bio-label">phonenumber</span>
+          <span class="bio-data">+{{user.phoneNumber}}</span>
+        </div>
+      </div>
+
+      <!-- here I need the trips from this user if it's not self  -->
+      <!-- <app-trip-list [trips]="trips"></app-trip-list> -->
+
+      <a class="button" href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">Send a message</a>
+
+
+    </div>
+
     <div *ngIf="update">
       <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
 
@@ -34,16 +66,6 @@
       </form>
     </div>
 
-    <div *ngIf="!update">
-      <h3>user details here</h3>
-      <p>{{user.name}}</p>
-      <p>{{user.bio}}</p>
-      <p>{{user.email}}</p>
-      <p>+{{user.phoneNumber}}</p>
-      <img [src]="apiUrl + user.photo">
-      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">send msg to {{user.name}} </a>
 
-      <button (click)="toggleForm()">update profile</button>
-    </div>
   </div>
 </div>

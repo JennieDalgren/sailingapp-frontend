@@ -7,7 +7,7 @@
 </div>
 
 <div *ngIf="!loading">
-  <h3>Trips I'm hosting (list should filter on my hosting trips)</h3>
+  
   <app-trip-list [trips]="hosted"></app-trip-list>
   <a class="button" [routerLink]="['/create']" >Create Trip</a>
 </div>
