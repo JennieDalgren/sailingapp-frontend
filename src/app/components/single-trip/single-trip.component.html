@@ -1,23 +1,73 @@
-<app-header></app-header>
+
 
 
 <div class="trip" *ngIf="!trip">
-  ...
+  ... <!-- loader here -->
 </div>
 
 <div class="trip" *ngIf="trip">
-  <h2>{{trip.name}}</h2>
-  <img src="{{apiUrl+trip.photos}}" alt="">
-  <p>Sail with {{trip.host?.name}}</p>
-  <img src="{{apiUrl+trip.host?.photo}}" alt="">
-  <p>{{trip.boat}}</p>
-  <p>FROM: {{trip.startLocation}} on {{trip.startDate | date:"mediumDate"}}</p>
-  <p>TO: {{trip.endLocation}} on {{trip.endDate | date:"mediumDate"}}</p>
-  <p>{{trip.tripLength}}</p>
-  <p>{{trip.description}}</p>
-  <p>{{trip.price}} €</p>
+
+  <div class="user-header-small">
+    <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.host?.photo + ')'}"></div>
+    <div class="user-meta">
+      <div class="user-name">{{trip.host?.name}}</div>
+      <div class="user-rating">***** (16)</div>
+    </div>
+  </div>
+
+
+  <div class="trip-header">
+    <h2 class="trip-title">{{trip.name}}</h2>
+    <span class="trip-dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
+  </div>
+
+  <div class="trip-photos">
+    <img src="{{apiUrl+trip.photos}}" alt="">
+  </div>
+
+  <div class="trip-description">
+    <p>{{trip.description}}</p>
+  </div>
+
+
+  <div class="trip-facts">
+    <h2>Info about the cruise</h2>
+    <div class="facts-item">
+      <span class="facts-label">departure</span>
+      <span class="facts-data">{{trip.startLocation}} on {{trip.startDate | date:"mediumDate"}}</span>
+    </div>
+
+    <div class="facts-item">
+      <span class="facts-label">arrival</span>
+      <span class="facts-data">{{trip.endLocation}} on {{trip.endDate | date:"mediumDate"}}</span>
+    </div>
+
+    <div class="facts-item">
+      <span class="facts-label">vessel name</span>
+      <span class="facts-data">{{trip.boat}}</span>
+    </div>
+
+    <div class="facts-item">
+      <span class="facts-label">number of days</span>
+      <span class="facts-data">{{trip.tripLength}}</span>
+    </div>
+
+    <div class="facts-item">
+      <span class="facts-label">available spots</span>
+      <span class="facts-data">{{trip.availableSpots}}</span>
+    </div>
+
+    <div class="facts-item">
+      <span class="facts-label">total price</span>
+      <span class="facts-data">{{trip.price}} €</span>
+    </div>
+
+    <a class="button" [routerLink]="['/request']">Request to book</a>
+
+  </div>
+
+
 </div>
 
 
-<!-- <a [routerLink]="['/request']">Request Booking</a> -->
 <app-request-booking [tripId]="tripId"></app-request-booking>

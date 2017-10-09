@@ -5,11 +5,13 @@
   font-size: 14px;
   text-decoration: none;
   margin-right: 12px;
+  text-transform: capitalize;
+  text-decoration: none;
 }
 
 .title:hover {
   color: $dark;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .user-photo {
@@ -17,6 +19,8 @@
   height: 36px;
   border-radius: 4px;
   background-color: $gray;
+  background-size: cover;
+  background-position: center center;
 }
 
 .user {
