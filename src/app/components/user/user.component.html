@@ -6,8 +6,6 @@
     <div *ngIf="update">
       <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
 
-        <input type="hidden" name="userFileName" [(ngModel)]="userFormData.userFileName" id="secret-input" />
-
         <div class="field" [ngClass]="{'has-error': uploadRequired}">
           <label>Upload Photo</label>
           <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
@@ -16,26 +14,27 @@
 
         <div class="field">
           <label>Update Name</label>
-          <input type="text" name="username" #myUserName=ngModel [(ngModel)]="userFormData.username" [disabled]="saving" />
+          <input type="text" name="name" #myUserName=ngModel [(ngModel)]="editUser.name" [disabled]="saving" />
         </div>
 
         <div class="field">
           <label>Update Bio</label>
-          <input type="text" name="bio" #myBio=ngModel [(ngModel)]="userFormData.bio" [disabled]="saving" />
+          <input type="text" name="bio" #myBio=ngModel [(ngModel)]="editUser.bio" [disabled]="saving" />
         </div>
 
         <div class="field">
           <label>Update Phone Number</label>
-          <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="userFormData.phoneNumber" [disabled]="saving" />
+          <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="editUser.phoneNumber" [disabled]="saving" />
         </div>
 
         <!-- <div class="field">
           <label>Payment Info</label>
-          <input type="text" name="paymentInfo" #myPaymentInfo=ngModel [(ngModel)]="userFormData.paymentInfo">
+          <input type="text" name="paymentInfo" #myPaymentInfo=ngModel [(ngModel)]="user.paymentInfo">
         </div> -->
 
         <div class="field">
           <button type="submit" [disabled]="saving">Submit</button>
+          <button type="cancel" (click)="cancel()" [disabled]="saving">Cancel</button>
         </div>
       </form>
     </div>

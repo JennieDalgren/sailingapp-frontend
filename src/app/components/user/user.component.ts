@@ -24,14 +24,8 @@ export class UserComponent implements OnInit {
   uploadRequired: boolean;
 
   user: User;
+  editUser: User;
   subscriptions = [];
-
-  userFormData = {
-    username: '',
-    bio: '',
-    phoneNumber: '',
-    userFileName: null,
-  };
 
   public uploader: FileUploader = new FileUploader({url: URL})
   feedback: string;
@@ -54,14 +48,21 @@ export class UserComponent implements OnInit {
 
   toggleForm() {
     this.update = !this.update;
+    if (this.update) {
+      this.editUser = new User(this.user);
+    }
   }
 
   private submit() {
     this.saving = true;
-    this.authService.updateUser(this.userFormData).subscribe(() => {
+    this.authService.updateUser(this.editUser).subscribe(() => {
       this.saving = false;
       this.toggleForm();
     });
+  }
+
+  cancel() {
+    this.toggleForm();
   }
 
   // onFileChange() { this.uploadRequired = false; }
@@ -69,16 +70,15 @@ export class UserComponent implements OnInit {
   handleUpdateUserForm(myForm) {
 
     const files = this.uploader.getNotUploadedItems();
-    if (!files.length) {
-      this.uploadRequired = true;
-      return;
+    if (files.length) {
+      this.uploader.uploadAll();
+      this.uploader.onCompleteItem = (item, response) => {
+        let data = JSON.parse(response);
+        this.editUser.photo = data.userFileName;
+        this.submit();
+      };
     }
-
-    this.uploader.uploadAll();
-
-    this.uploader.onCompleteItem = (item, response) => {
-      let data = JSON.parse(response);
-      this.userFormData.userFileName = data.userFileName;
+    else {
       this.submit();
     }
   }

@@ -86,7 +86,7 @@ export class AuthService {
     }
   }
 
-  updateUser(user){
+  updateUser(user: User){
     let options = new RequestOptions();
     options.withCredentials = true;
     return this.http.put(apiUrl + '/me', user, options)
