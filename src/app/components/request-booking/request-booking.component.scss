@@ -1,0 +1,21 @@
+@import '../../../variables';
+
+.trip-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.trip-title {
+  font-size: 24px;
+  color: $dark;
+  font-weight: $medium;
+  margin-bottom: 8px;
+  margin-top: 30px;
+}
+
+.trip-dates {
+  font-size: 18px;
+  color: $gray;
+  font-weight: $normal;
+}
