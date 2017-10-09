@@ -38,6 +38,11 @@ import { RequestBookingComponent } from './components/request-booking/request-bo
 import { CreateTripPageComponent } from './pages/create-trip-page/create-trip-page.component';
 import { RequestBookingPageComponent } from './pages/request-booking-page/request-booking-page.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MyHostedPageComponent } from './pages/my-hosted-page/my-hosted-page.component';
+import { MyAttendingPageComponent } from './pages/my-attending-page/my-attending-page.component';
+import { MyAttendingSinglePageComponent } from './pages/my-attending-single-page/my-attending-single-page.component';
+import { MyHostedSinglePageComponent } from './pages/my-hosted-single-page/my-hosted-single-page.component';
+import { UserNavComponent } from './components/user-nav/user-nav.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,6 +54,8 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
   { path: 'request', component: RequestBookingPageComponent },
+  { path: 'my-hosted', component: MyHostedPageComponent },
+  { path: 'my-attending', component: MyAttendingPageComponent },
 ];
 
 @NgModule({
@@ -74,6 +81,11 @@ const routes: Routes = [
     CreateTripPageComponent,
     RequestBookingPageComponent,
     HeaderComponent,
+    MyHostedPageComponent,
+    MyAttendingPageComponent,
+    MyAttendingSinglePageComponent,
+    MyHostedSinglePageComponent,
+    UserNavComponent,
   ],
   imports: [
     BrowserModule,

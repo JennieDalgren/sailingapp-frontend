@@ -14,15 +14,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserPageComponent implements OnInit {
 
-  tab = 3;
-
-  setTab(num: number) {
-    this.tab = num;
-  }
-
-  isSelected(num: number) {
-    return this.tab === num;
-  }
 
   tripId: string;
   userId: string;
@@ -35,15 +26,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.tripService.getHostedTrips()
-      .subscribe((data) => {
-        this.hosted = data;
-    });
-
-    this.tripService.getAttendingTrips()
-      .subscribe((data) => {
-        this.attending = data;
-    });
+    
   }
 
 }

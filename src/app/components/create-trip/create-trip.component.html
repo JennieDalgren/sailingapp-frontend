@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <h2>Create Trip</h2>
 
 <form class="create-trip" (ngSubmit)="handleCreateTripForm(myForm)" #myForm="ngForm" novalidate>
@@ -45,7 +47,7 @@
     <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
     <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
   </div>
-  
+
   <div class="field">
     <button type="submit">Submit</button>
   </div>

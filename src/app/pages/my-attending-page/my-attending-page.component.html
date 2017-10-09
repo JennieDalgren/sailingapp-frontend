@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-user-nav></app-user-nav>
+
+
+
+<h3>Trips I'm joining (list should filter on my attending trips)</h3>
+<app-trip-list [trips]="attending"></app-trip-list>
+<a class="button" [routerLink]="['/home']">Find Trip</a>

@@ -1,8 +1,5 @@
+<app-header></app-header>
 
-<header>
-  <a [routerLink]="['/']">Back</a> <!-- Back return to previous route -->
-  <app-auth-user></app-auth-user>
-</header>
 
 <div class="trip" *ngIf="!trip">
   ...
@@ -12,6 +9,7 @@
   <h2>{{trip.name}}</h2>
   <img src="{{apiUrl+trip.photos}}" alt="">
   <p>Sail with {{trip.host?.name}}</p>
+  <img src="{{apiUrl+trip.host?.photo}}" alt="">
   <p>{{trip.boat}}</p>
   <p>FROM: {{trip.startLocation}} on {{trip.startDate | date:"mediumDate"}}</p>
   <p>TO: {{trip.endLocation}} on {{trip.endDate | date:"mediumDate"}}</p>
