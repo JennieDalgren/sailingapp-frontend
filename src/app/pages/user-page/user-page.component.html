@@ -12,11 +12,11 @@
 
 <div [ngSwitch]="tab" class="container">
   <h3 *ngSwitchCase="1">Trips I'm hosting (list should filter on my hosting trips)</h3>
-  <app-trip-list [trips]="trips" *ngSwitchCase="1"></app-trip-list>
+  <app-trip-list [trips]="hosted" *ngSwitchCase="1"></app-trip-list>
   <a class="button" [routerLink]="['/create']" *ngSwitchCase="1">Create Trip</a>
 
   <h3 *ngSwitchCase="2">Trips I'm joining (list should filter on my attending trips)</h3>
-  <app-trip-list [trips]="trips" *ngSwitchCase="2"></app-trip-list>
+  <app-trip-list [trips]="attending" *ngSwitchCase="2"></app-trip-list>
   <a class="button" [routerLink]="['/home']" *ngSwitchCase="2">Find Trip</a>
 
   <h3 *ngSwitchCase="3">My Profile where I can update my info</h3>

@@ -4,9 +4,12 @@ import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class TripService {
   new: any = {};
+
 
   constructor(private http: Http) { }
 
@@ -48,7 +51,7 @@ export class TripService {
     return this.http.get('http://localhost:3000/trips/hosted', options)
       .map((res: Response) => res.json());
   }
-  
+
   getAttendingTrips(){
     let options = new RequestOptions();
     options.withCredentials = true;

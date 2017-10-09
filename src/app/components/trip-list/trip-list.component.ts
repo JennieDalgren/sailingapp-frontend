@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 })
 export class TripListComponent implements OnInit {
   @Input() trips: Object[];
+  
   apiUrl = environment.apiUrl;
 
   constructor() { }

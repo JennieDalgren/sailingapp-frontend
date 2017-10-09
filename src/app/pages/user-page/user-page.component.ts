@@ -3,6 +3,7 @@ import { TripService } from '../../services/trip.service';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -23,26 +24,26 @@ export class UserPageComponent implements OnInit {
     return this.tab === num;
   }
 
-
-
+  tripId: string;
   userId: string;
-  trips: Object[];
+  hosted: Object;
+  attending: Object;
 
   user: User;
   subscriptions = [];
-  constructor(private tripService: TripService, private userService: UserService, private authService: AuthService) { }
+  constructor(private activatedRoute: ActivatedRoute, private tripService: TripService, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.tripService.getTripList()
+
+    this.tripService.getHostedTrips()
       .subscribe((data) => {
-        this.trips = data;
+        this.hosted = data;
     });
 
-    // let tripSubscription = this.ActivatedRoute.params.subscribe(params=>this.tripId = params['id']);
-    // this.tripService.getHostedTrips()
-    //   .subscribe((data) => {
-    //     this.trips = data;
-    // });
+    this.tripService.getAttendingTrips()
+      .subscribe((data) => {
+        this.attending = data;
+    });
   }
 
 }

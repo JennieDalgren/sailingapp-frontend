@@ -37,9 +37,6 @@ export class CreateTripComponent implements OnInit {
 
   constructor(private tripService: TripService, private authService: AuthService, private router: Router) { }
 
-  // private setUser(user: User | null) {
-  //   this.user = user;
-  // }
 
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
@@ -53,28 +50,27 @@ export class CreateTripComponent implements OnInit {
   }
 
   private submit() {
-
     this.tripService.insertNew(this.formData).subscribe();
   }
 
 
-    handleCreateTripForm(myForm) {
+  handleCreateTripForm(myForm) {
 
-      const files = this.uploader.getNotUploadedItems();
-      if (!files.length) {
-        this.uploadRequired = true;
-        return;
-      }
-
-      this.uploader.uploadAll();
-
-      this.uploader.onCompleteItem = (item, response) => {
-        let data = JSON.parse(response);
-        this.formData.fileName = data.fileName;
-        this.submit();
-        this.router.navigate(['/user']);
-      }
+    const files = this.uploader.getNotUploadedItems();
+    if (!files.length) {
+      this.uploadRequired = true;
+      return;
     }
+
+    this.uploader.uploadAll();
+
+    this.uploader.onCompleteItem = (item, response) => {
+      let data = JSON.parse(response);
+      this.formData.fileName = data.fileName;
+      this.submit();
+      this.router.navigate(['/user']);
+    }
+  }
 
 
 }

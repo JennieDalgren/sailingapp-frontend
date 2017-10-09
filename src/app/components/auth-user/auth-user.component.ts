@@ -31,8 +31,5 @@ export class AuthUserComponent implements OnInit {
 
   }
 
-  // toggleForms() {
-  //   this.formsVisible = !this.formsVisible;
-  // }
 
 }

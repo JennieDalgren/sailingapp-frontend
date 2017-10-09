@@ -43,9 +43,9 @@
       <p>{{user.name}}</p>
       <p>{{user.bio}}</p>
       <p>{{user.email}}</p>
-      <p>{{user.phoneNumber}}</p>
+      <p>+{{user.phoneNumber}}</p>
       <img [src]="apiUrl + user.photo">
-      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I'm%20interested%20in%20your%20car%20for%20sale">send msg test</a>
+      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">send msg test</a>
 
       <button (click)="toggleForm()">update profile</button>
     </div>
