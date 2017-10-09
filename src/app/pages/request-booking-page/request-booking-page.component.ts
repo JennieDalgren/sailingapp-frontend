@@ -4,27 +4,23 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-request-booking',
-  templateUrl: './request-booking.component.html',
-  styleUrls: ['./request-booking.component.scss']
+  selector: 'app-request-booking-page',
+  templateUrl: './request-booking-page.component.html',
+  styleUrls: ['./request-booking-page.component.scss']
 })
-export class RequestBookingComponent implements OnInit {
+export class RequestBookingPageComponent implements OnInit {
+
   @Input() tripId;
   bookingFormData = {
     guestCount: 1
   };
   booked: boolean = false;
 
-
   constructor(private tripService: TripService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  handleRequestBooking(bookingForm) {
-    this.tripService.requestBooking(this.bookingFormData, this.tripId).subscribe()
-    this.router.navigate(['/user']);
-  }
 
 
 }

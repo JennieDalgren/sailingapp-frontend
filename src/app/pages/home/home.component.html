@@ -1,8 +1,5 @@
 
-<header>
-  <span class="logo">Sailaroo</span>
-  <app-auth-user></app-auth-user>
-</header>
+<app-header></app-header>
 
 <div *ngIf="loading">
   ...
@@ -12,23 +9,5 @@
   <app-search (onSearchUpdated)="handleSearchUpdated($event)"></app-search>
 
   <app-trip-list [trips]="trips"></app-trip-list>
-  
+
 </div>
-
-
-<!-- <div *ngIf="!loading" && "user">
-  <app-auth-user></app-auth-user>
-
-
-  <app-create-trip></app-create-trip>
-
-  <h3>My hosted trips</h3>
-  <app-trip-list></app-trip-list>
-   GET THIS TO WORK!!!
-
-
-
-  <h3>My trips as a guest</h3>
-  <app-trip-list [attending]="attending"></app-trip-list>
-
-</div> -->

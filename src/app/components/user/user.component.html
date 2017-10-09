@@ -27,17 +27,13 @@
           <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="editUser.phoneNumber" [disabled]="saving" />
         </div>
 
-        <!-- <div class="field">
-          <label>Payment Info</label>
-          <input type="text" name="paymentInfo" #myPaymentInfo=ngModel [(ngModel)]="user.paymentInfo">
-        </div> -->
-
         <div class="field">
           <button type="submit" [disabled]="saving">Submit</button>
           <button type="cancel" (click)="cancel()" [disabled]="saving">Cancel</button>
         </div>
       </form>
     </div>
+
     <div *ngIf="!update">
       <h3>user details here</h3>
       <p>{{user.name}}</p>
@@ -45,7 +41,7 @@
       <p>{{user.email}}</p>
       <p>+{{user.phoneNumber}}</p>
       <img [src]="apiUrl + user.photo">
-      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">send msg test</a>
+      <a href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">send msg to {{user.name}} </a>
 
       <button (click)="toggleForm()">update profile</button>
     </div>

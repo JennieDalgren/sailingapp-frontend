@@ -17,6 +17,7 @@ export class SingleTripPageComponent implements OnInit, OnDestroy {
   constructor(private ActivatedRoute: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit() {
+
     this.user = this.auth.getUser();
     let tripSubscription = this.ActivatedRoute.params.subscribe(params=>this.tripId = params['id']);
     let userSubscription = this.auth.userChange$.subscribe((user) => this.user = user);

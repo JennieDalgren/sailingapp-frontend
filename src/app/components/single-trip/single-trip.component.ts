@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TripService } from '../../services/trip.service';
+import { AuthService } from '../../services/auth.service';
 import { environment } from '../../../environments/environment';
+import { User } from '../../models/user.model';
 
 
 
@@ -15,10 +17,12 @@ export class SingleTripComponent implements OnInit {
   trip: Object = {};
   apiUrl = environment.apiUrl;
   booked: boolean = false;
+  user: User;
 
-  constructor(private TripService: TripService) { }
+  constructor(private TripService: TripService, private auth: AuthService) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
     this.TripService.getTrip(this.tripId).subscribe((data) => this.trip = data);
   }
 

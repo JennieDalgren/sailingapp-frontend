@@ -36,6 +36,8 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RequestBookingComponent } from './components/request-booking/request-booking.component';
 import { CreateTripPageComponent } from './pages/create-trip-page/create-trip-page.component';
+import { RequestBookingPageComponent } from './pages/request-booking-page/request-booking-page.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,6 +48,7 @@ const routes: Routes = [
   { path: 'playground', component: PlaygroundComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
+  { path: 'request', component: RequestBookingPageComponent },
 ];
 
 @NgModule({
@@ -69,6 +72,8 @@ const routes: Routes = [
     LoginPageComponent,
     RequestBookingComponent,
     CreateTripPageComponent,
+    RequestBookingPageComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

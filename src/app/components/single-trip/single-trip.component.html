@@ -9,19 +9,16 @@
 </div>
 
 <div class="trip" *ngIf="trip">
-
+  <h2>{{trip.name}}</h2>
   <img src="{{apiUrl+trip.photos}}" alt="">
   <p>Sail with {{trip.host?.name}}</p>
+  <p>{{trip.boat}}</p>
   <p>FROM: {{trip.startLocation}} on {{trip.startDate | date:"mediumDate"}}</p>
   <p>TO: {{trip.endLocation}} on {{trip.endDate | date:"mediumDate"}}</p>
   <p>{{trip.description}}</p>
   <p>{{trip.price}} €</p>
-  <p>tripname: {{trip.name}}</p>
-  <p>boatname: {{trip.boat}}</p>
-{{trip | json}}
-
-
 </div>
 
 
+<!-- <a [routerLink]="['/request']">Request Booking</a> -->
 <app-request-booking [tripId]="tripId"></app-request-booking>
