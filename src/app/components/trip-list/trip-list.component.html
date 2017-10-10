@@ -1,20 +1,30 @@
+<div [ngSwitch]="type">
+  <h3 *ngSwitchCase="'all'"> all trips </h3>
+  <h3 *ngSwitchCase="'host'"> hosted trips </h3>
+  <h3 *ngSwitchCase="'attending'"> attending trips </h3>
+  <h3 *ngSwitchDefault>Defualt </h3>
+  <h3>{{type}}</h3>
+</div>
+
 
 <div class="list">
 
   <div class="card" *ngFor="let trip of trips">
-    <a [routerLink]="['/trips', trip.id]">
-      <div class="item">
+
+    <div class="item">
+      <a [routerLink]="['/trips', trip.id]">
         <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.photos + ')'}"></header>
-        <article>
-          <h2>{{trip.startLocation}} - {{trip.endLocation}}</h2>
-          <span class="dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
-        </article>
-      </div>
-      <div class="item-footer">
-        <div class="description">{{trip.name}}</div>
-        <div class="price">{{trip.price}} €</div>
-      </div>
-    </a>
+      </a>
+      <article>
+        <h2>{{trip.startLocation}} - {{trip.endLocation}}</h2>
+        <span class="dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
+      </article>
+    </div>
+    <div class="item-footer">
+      <div class="description">{{trip.name}}</div>
+      <div class="price">{{trip.price}} €</div>
+    </div>
+
 
   </div>
 

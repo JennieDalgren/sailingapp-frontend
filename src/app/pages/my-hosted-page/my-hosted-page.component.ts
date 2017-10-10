@@ -20,6 +20,7 @@ export class MyHostedPageComponent implements OnInit {
   trip: Trip;
   user: User;
   subscriptions = [];
+  type: string = "host";
 
   constructor(private activatedRoute: ActivatedRoute,
               private tripService: TripService,

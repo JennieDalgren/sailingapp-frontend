@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TripService } from '../../services/trip.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Trip } from '../../models/trip.model';
+import { User } from '../../models/user.model';
 
 
 @Component({
@@ -17,11 +19,12 @@ export class RequestBookingComponent implements OnInit {
   };
 
   trip: Trip;
+  user: User;
 
-
-  constructor(private tripService: TripService, private router: Router) { }
+  constructor(private auth: AuthService, private tripService: TripService, private router: Router) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
     this.tripService.getTrip(this.tripId).subscribe((data) => this.trip = data);
   }
 

@@ -1,35 +1,42 @@
 
-
-<div class="trip-header">
-  <h2 class="trip-title">{{trip.name}}</h2>
-  <span class="trip-dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
+<div *ngIf="!trip">
+... loading
 </div>
 
-<form class="request-booking" (ngSubmit)="handleRequestBooking(bookingForm)" #bookingForm="ngForm" novalidate>
+<div *ngIf="trip">
 
-  <div class="trip-facts">
-    <div class="facts-item">
-      <span class="facts-label">name</span>
-      <span class="facts-data">Linus Ekenstam????</span>
-    </div>
-
-    <div class="facts-item">
-      <span class="facts-label">number of guests</span>
-      <span class="facts-data"><input type="number" name="guestCount" #myGuestCount=ngModel [(ngModel)]="bookingFormData.guestCount"></span>
-    </div>
-
-    <div class="facts-item">
-      <span class="facts-label">total price</span>
-      <span class="facts-data">{{trip.price}}</span>
-    </div>
-
-    <div class="facts-item">
-      <span class="facts-label">message for captain</span>
-      <span class="facts-data"><textarea rows="4" name="message" #myMessage=ngModel [(ngModel)]="bookingFormData.message"></textarea></span>
-    </div>
-
-    <button type="submit" class="button">Confirm booking</button>
-
+  <div class="trip-header">
+    <h2 class="trip-title">{{trip.name}}</h2>
+    <span class="trip-dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
   </div>
 
-</form>
+  <form class="request-booking" (ngSubmit)="handleRequestBooking(bookingForm)" #bookingForm="ngForm" novalidate>
+
+    <div class="trip-facts">
+      <!-- <div class="facts-item">
+        <span class="facts-label">name</span>
+        <span class="facts-data">UserNAme</span>
+      </div> -->
+
+      <div class="facts-item">
+        <span class="facts-label">number of guests</span>
+        <span class="facts-data"><input type="number" name="guestCount" #myGuestCount=ngModel [(ngModel)]="bookingFormData.guestCount"></span>
+      </div>
+
+      <div class="facts-item">
+        <span class="facts-label">total price</span>
+        <span class="facts-data">{{trip.price}}</span>
+      </div>
+
+      <div class="facts-item">
+        <span class="facts-label">message for captain</span>
+        <span class="facts-data"><textarea rows="4" name="message" #myMessage=ngModel [(ngModel)]="bookingFormData.message"></textarea></span>
+      </div>
+
+      <button type="submit" class="button">Confirm booking</button>
+
+    </div>
+
+  </form>
+
+</div>

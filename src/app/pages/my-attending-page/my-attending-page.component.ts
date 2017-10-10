@@ -18,6 +18,8 @@ export class MyAttendingPageComponent implements OnInit {
   loading: boolean = true;
   user: User;
   subscriptions = [];
+  type: string = "attending";
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private tripService: TripService,

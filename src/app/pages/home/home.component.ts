@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
+import { NgSwitch } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,15 @@ export class HomeComponent implements OnInit {
   trips: Object[];
   loading: boolean = true;
   user: User;
+  type: string = "all";
+
+
+
 
   constructor(private tripService: TripService, private auth: AuthService) { }
 
   ngOnInit() {
+
     this.user = this.auth.getUser();
     this.tripService.getTripList()
       .subscribe((data) => {
