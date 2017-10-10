@@ -25,11 +25,10 @@ export class AuthUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.authService.getUser();
+    this.setUser(this.authService.getUser());
     this.authService.userChange$.subscribe((user) => {
       this.setUser(user);
     });
-
   }
 
 
