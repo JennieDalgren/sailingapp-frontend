@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TripService } from '../../services/trip.service';
 import { Router } from '@angular/router';
+import { Trip } from '../../models/trip.model';
 
 
 @Component({
@@ -10,15 +11,18 @@ import { Router } from '@angular/router';
 })
 export class RequestBookingComponent implements OnInit {
   @Input() tripId;
+
   bookingFormData = {
     guestCount: 1
   };
-  booked: boolean = false;
+
+  trip: Trip;
 
 
   constructor(private tripService: TripService, private router: Router) { }
 
   ngOnInit() {
+    this.tripService.getTrip(this.tripId).subscribe((data) => this.trip = data);
   }
 
   handleRequestBooking(bookingForm) {

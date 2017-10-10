@@ -1,8 +1,8 @@
 
 
 <div class="trip-header">
-  <h2 class="trip-title">Nassau to Freetown</h2>
-  <span class="trip-dates">1st October - 10th October, 2017</span>
+  <h2 class="trip-title">{{trip.name}}</h2>
+  <span class="trip-dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
 </div>
 
 <form class="request-booking" (ngSubmit)="handleRequestBooking(bookingForm)" #bookingForm="ngForm" novalidate>
@@ -10,7 +10,7 @@
   <div class="trip-facts">
     <div class="facts-item">
       <span class="facts-label">name</span>
-      <span class="facts-data">Linus Ekenstam</span>
+      <span class="facts-data">Linus Ekenstam????</span>
     </div>
 
     <div class="facts-item">
@@ -20,7 +20,7 @@
 
     <div class="facts-item">
       <span class="facts-label">total price</span>
-      <span class="facts-data">555€</span>
+      <span class="facts-data">{{trip.price}}</span>
     </div>
 
     <div class="facts-item">

@@ -3,6 +3,8 @@ import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
 import { environment } from '../../../environments/environment';
 import { User } from '../../models/user.model';
+import { Trip } from '../../models/trip.model';
+
 
 
 
@@ -14,9 +16,7 @@ import { User } from '../../models/user.model';
 export class SingleTripComponent implements OnInit {
 
   @Input() tripId: string;
-  trip: Object = {};
-  apiUrl = environment.apiUrl;
-  booked: boolean = false;
+  trip: Trip;
   user: User;
 
   constructor(private TripService: TripService, private auth: AuthService) { }
