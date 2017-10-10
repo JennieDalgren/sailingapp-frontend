@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { environment } from '../../../environments/environment';
 import { User } from '../../models/user.model';
 import { Trip } from '../../models/trip.model';
+import { NgSwitch } from '@angular/common';
 
 
 

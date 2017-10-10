@@ -1,3 +1,5 @@
-<p>
-  my-hosted-single-page works!
-</p>
+<app-header></app-header>
+
+
+<app-single-trip [tripId]="tripId"></app-single-trip>
+<a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>

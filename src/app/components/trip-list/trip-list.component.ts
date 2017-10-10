@@ -7,6 +7,7 @@ import { NgSwitch } from '@angular/common';
   templateUrl: './trip-list.component.html',
   styleUrls: ['./trip-list.component.scss']
 })
+
 export class TripListComponent implements OnInit {
   @Input() trips: Object[];
   @Input() type: string;
@@ -19,4 +20,7 @@ export class TripListComponent implements OnInit {
 
   }
 
+  handleConfirm(){
+
+  }
 }

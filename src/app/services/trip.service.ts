@@ -68,4 +68,12 @@ export class TripService {
       .map((res: Response) => res.json());
   }
 
+  confirmBooking(bookingId){
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.post(`http://localhost:3000/trips/${bookingId}`, options)
+    .map((res: Response) => {
+       return res.json()
+    })
+  }
 }

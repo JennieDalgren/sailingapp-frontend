@@ -14,7 +14,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserPageComponent implements OnInit {
 
-
   tripId: string;
   userId: string;
   hosted: Object;
@@ -25,8 +24,6 @@ export class UserPageComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private tripService: TripService, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-
-    
   }
 
 }

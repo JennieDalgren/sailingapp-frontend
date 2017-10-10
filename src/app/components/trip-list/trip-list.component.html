@@ -1,10 +1,6 @@
 <div [ngSwitch]="type">
-  <h3 *ngSwitchCase="'all'"> all trips </h3>
-  <h3 *ngSwitchCase="'host'"> hosted trips </h3>
-  <h3 *ngSwitchCase="'attending'"> attending trips </h3>
-  <h3 *ngSwitchDefault>Defualt </h3>
-  <h3>{{type}}</h3>
-</div>
+
+
 
 
 <div class="list">
@@ -12,7 +8,7 @@
   <div class="card" *ngFor="let trip of trips">
 
     <div class="item">
-      <a [routerLink]="['/trips', trip.id]">
+      <a [routerLink]="['/', type, trip.id]">
         <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.photos + ')'}"></header>
       </a>
       <article>
@@ -23,11 +19,32 @@
     <div class="item-footer">
       <div class="description">{{trip.name}}</div>
       <div class="price">{{trip.price}} €</div>
+      <div *ngSwitchCase="'host'">
+        <button (click)="handleConfirm()">confirm</button>
+        <button>reject</button>
+      </div>
+      <div *ngSwitchCase="'attending'">
+        <p>status (confirmed, rejected or pending)</p>
+      </div>
     </div>
 
 
   </div>
 
-  <p *ngIf="!trips.length">No matches</p>
+  <div *ngIf="!trips.length">
+    <div *ngSwitchCase="'all'">
+      <h3>No Matches</h3>
+    </div>
+    <div *ngSwitchCase="'host'">
+      <h3>You haven't created any trips yet</h3>
+    </div>
+    <div *ngSwitchCase="'attending'">
+      <img src="../../../assets/images/compass.png" width="251">
+      <h3>You have not booked any trips</h3>
+    </div>
+  </div>
+
+</div>
+
 
 </div>

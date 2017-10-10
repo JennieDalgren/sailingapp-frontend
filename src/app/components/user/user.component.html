@@ -1,71 +1,68 @@
 <div *ngIf="!user">...</div>
 
-<div *ngIf="user">
-
-  <div class="user-page">
 
 
-    <div *ngIf="!update">
+<div *ngIf="user" class="user-page">
 
-      <div class="user-header-big">
-        <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
-        <h2 class="user-name">{{user.name}}</h2>
-        <button (click)="toggleForm()">update profile</button>
-      </div>
+  <div *ngIf="!update">
 
-      <div class="bio">
-        <p>{{user.bio}}</p>
-
-        <div class="bio-item">
-          <span class="bio-label">email</span>
-          <span class="bio-data">{{user.email}}</span>
-        </div>
-
-        <div class="bio-item">
-          <span class="bio-label">phonenumber</span>
-          <span class="bio-data">+{{user.phoneNumber}}</span>
-        </div>
-      </div>
-
-      <!-- here I need the trips from this user if it's not self  -->
-      <!-- <app-trip-list [trips]="trips"></app-trip-list> -->
-
-      <a class="button" href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">Send a message</a>
-
-
+    <div class="user-header-big">
+      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
+      <h2 class="user-name">{{user.name}}</h2>
+      <button (click)="toggleForm()">update profile</button>
     </div>
 
-    <div *ngIf="update">
-      <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
+    <div class="bio">
+      <p>{{user.bio}}</p>
 
-        <div class="field" [ngClass]="{'has-error': uploadRequired}">
-          <label>Upload Photo</label>
-          <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
-          <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
-        </div>
+      <div class="bio-item">
+        <span class="bio-label">email</span>
+        <span class="bio-data">{{user.email}}</span>
+      </div>
 
-        <div class="field">
-          <label>Update Name</label>
-          <input type="text" name="name" #myUserName=ngModel [(ngModel)]="editUser.name" [disabled]="saving" />
-        </div>
-
-        <div class="field">
-          <label>Update Bio</label>
-          <input type="text" name="bio" #myBio=ngModel [(ngModel)]="editUser.bio" [disabled]="saving" />
-        </div>
-
-        <div class="field">
-          <label>Update Phone Number</label>
-          <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="editUser.phoneNumber" [disabled]="saving" />
-        </div>
-
-        <div class="field">
-          <button type="submit" [disabled]="saving">Submit</button>
-          <button type="cancel" (click)="cancel()" [disabled]="saving">Cancel</button>
-        </div>
-      </form>
+      <div class="bio-item">
+        <span class="bio-label">phonenumber</span>
+        <span class="bio-data">+{{user.phoneNumber}}</span>
+      </div>
     </div>
+
+    <!-- here I need the trips from this user if it's not self  -->
+    <!-- <app-trip-list [trips]="trips"></app-trip-list> -->
+
+    <a class="button" href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">Send a message</a>
 
 
   </div>
+
+  <div *ngIf="update">
+    <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
+
+      <div class="field" [ngClass]="{'has-error': uploadRequired}">
+        <label>Upload Photo</label>
+        <input type="file" name="file" ng2FileSelect [uploader]="uploader" [disabled]="saving" />
+        <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
+      </div>
+
+      <div class="field">
+        <label>Update Name</label>
+        <input type="text" name="name" #myUserName=ngModel [(ngModel)]="editUser.name" [disabled]="saving" />
+      </div>
+
+      <div class="field">
+        <label>Update Bio</label>
+        <input type="text" name="bio" #myBio=ngModel [(ngModel)]="editUser.bio" [disabled]="saving" />
+      </div>
+
+      <div class="field">
+        <label>Update Phone Number</label>
+        <input type="text" name="phoneNumber" #myphoneNumber=ngModel [(ngModel)]="editUser.phoneNumber" [disabled]="saving" />
+      </div>
+
+      <div class="field">
+        <button type="submit" [disabled]="saving">Submit</button>
+        <button type="cancel" (click)="cancel()" [disabled]="saving">Cancel</button>
+      </div>
+    </form>
+  </div>
+
 </div>

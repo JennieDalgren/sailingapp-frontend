@@ -1,14 +1,12 @@
-
-
-
 <div class="trip" *ngIf="!trip">
   ... <!-- loader here -->
 </div>
 
 <div class="trip" *ngIf="trip">
-
   <div class="user-header-small">
-    <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.host?.photo + ')'}"></div>
+    <a [routerLink]="['/user', trip.host?._id]">
+      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.host?.photo + ')'}"></div>
+    </a>
     <div class="user-meta">
       <div class="user-name">{{trip.host?.name}}</div>
       <div class="user-rating">***** (16)</div>
@@ -61,7 +59,10 @@
       <span class="facts-data">{{trip.price}} €</span>
     </div>
 
-    <a class="button" [routerLink]="['/request', trip.id]">Request to book</a>
+
+      
+
+
 
   </div>
 
