@@ -2,16 +2,19 @@
 
 
 .list {
-  min-height: 460px;
-  max-height: 460px;
   width: 100%;
   outline: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   outline: none;
   cursor: pointer;
   height: 500px;
+  width: 270px;
+  margin: 20px;
 }
 
 .card a {

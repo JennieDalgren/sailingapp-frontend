@@ -25,5 +25,6 @@
 <app-single-trip [tripId]="tripId"></app-single-trip>
 <!--app-single-trip-bookings [tripId]="tripId"></app-single-trip-bookings-->
 
-
-<a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>
+<div class="trip-facts">
+  <a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>
+</div>
