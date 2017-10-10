@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'playground', component: PlaygroundComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
-  { path: 'request', component: RequestBookingPageComponent },
+  { path: 'request/:id', component: RequestBookingPageComponent },
   { path: 'my-hosted', component: MyHostedPageComponent },
   { path: 'my-attending', component: MyAttendingPageComponent },
 ];

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TripService } from '../../services/trip.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -10,17 +12,21 @@ import { Router } from '@angular/router';
 })
 export class RequestBookingPageComponent implements OnInit {
 
-  @Input() tripId;
-  bookingFormData = {
-    guestCount: 1
-  };
-  booked: boolean = false;
+  tripId: string;
 
-  constructor(private tripService: TripService, private router: Router) { }
+  subscriptions = [];
+
+
+  constructor(private activatedRoute: ActivatedRoute, private tripService: TripService, private router: Router) { }
 
   ngOnInit() {
+    let tripSubscription = this.activatedRoute.params.subscribe(params=>this.tripId = params['id']);
+    this.subscriptions.push(tripSubscription);
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
 
 
 }
