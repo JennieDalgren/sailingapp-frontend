@@ -1,5 +1,49 @@
 @import '../../../variables';
 
+.button {
+  background-color: $primary;
+  color: $white;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $bold;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 100%;
+  -webkit-transition: background-color 200ms;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1488C1;
+}
+
+.button-cancel {
+  background-color: $white;
+  color: $dark;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $bold;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  margin-top: 24px;
+  width: 100%;
+  -webkit-transition: background-color 200ms;
+  border: 1px solid $gray;
+  padding: 0;
+  cursor: pointer;
+}
+
 .user-page {
   padding-bottom: 40px;
 }
@@ -71,28 +115,50 @@
   display: block;
 }
 
-.button {
-  background-color: $primary;
-  color: $white;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: $bold;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin: 0 auto;
-  margin-top: 40px;
-  width: 86%;
-  -webkit-transition: background-color 200ms;
-}
-
-.button:hover {
-  background-color: #333;
-}
-
 .logout {
   text-align: center;
-  padding: 30px 0px;
+  padding: 10px 0px;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: $dark;
+}
+
+.flex-center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.form-container {
+  width: 80%;
+  max-width: 640px;
+}
+
+.form-item {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.label {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: $dark;
+  display: block;
+  font-weight: $bold;
+  margin-bottom: 4px;
+}
+
+input, textarea {
+  border: none;
+  width: 100%;
+  font-size: 20px;
+  border-bottom: 1px solid $gray;
+  outline: none;
+  line-height: 24px;
 }
