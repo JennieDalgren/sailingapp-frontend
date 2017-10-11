@@ -26,10 +26,11 @@ export class RequestBookingComponent implements OnInit {
   ngOnInit() {
     this.user = this.auth.getUser();
     this.tripService.getTrip(this.tripId).subscribe((data) => this.trip = data);
+
   }
 
   handleRequestBooking(bookingForm) {
-    this.tripService.requestBooking(this.bookingFormData, this.tripId).subscribe()
+    this.tripService.requestBooking(this.tripId, this.bookingFormData).subscribe()
     this.router.navigate(['/my-attending']);
   }
 

@@ -4,15 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MaterialModule } from './material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AuthService } from './services/auth.service';
 import { TripService } from './services/trip.service';
 import { UserService } from './services/user.service';
 
 import { RequireAuthService } from './guards/require-auth.service';
-
 
 import { AppComponent } from './app.component';
 import { SingleTripPageComponent } from './pages/single-trip-page/single-trip-page.component';
@@ -93,8 +89,6 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    MaterialModule,
-    BrowserAnimationsModule,
     FileUploadModule
   ],
   exports: [],

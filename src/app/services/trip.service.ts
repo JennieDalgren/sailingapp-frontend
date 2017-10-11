@@ -38,7 +38,7 @@ export class TripService {
     })
   }
 
-  requestBooking(booking, bookingId) {
+  requestBooking(bookingId, booking) {
     let options = new RequestOptions();
     options.withCredentials = true;
     return this.http.post(apiUrl + `${bookingId}`, booking, options)
