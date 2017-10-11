@@ -25,7 +25,7 @@ export class TripService {
   getTrip(id: string){
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.get(`http://localhost:3000/trips/${id}`, options)
+    return this.http.get(apiUrl + `${id}`, options)
       .map((res: Response) => res.json());
   }
 
@@ -41,7 +41,7 @@ export class TripService {
   requestBooking(booking, bookingId) {
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.post(`http://localhost:3000/trips/${bookingId}`, booking, options)
+    return this.http.post(apiUrl + `${bookingId}`, booking, options)
     .map((res: Response) => {
        return res.json()
     })
@@ -64,7 +64,7 @@ export class TripService {
   confirmBooking(tripId, bookingId, status){
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.get(`http://localhost:3000/trips/${tripId}/booking/${bookingId}/${status}`, options)
+    return this.http.get(apiUrl + `${tripId}/booking/${bookingId}/${status}`, options)
     .map((res: Response) => {
        return res.json()
     })

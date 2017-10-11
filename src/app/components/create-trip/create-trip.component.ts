@@ -26,7 +26,7 @@ export class CreateTripComponent implements OnInit {
     endLocation: '',
     boat: '',
     name: '',
-    desciption: '',
+    description: '',
     price: '',
     availableSpots: 1,
     fileName: null,

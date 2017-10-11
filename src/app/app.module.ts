@@ -26,7 +26,7 @@ import { CreateTripComponent } from './components/create-trip/create-trip.compon
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 
-import { FileSelectDirective } from "ng2-file-upload";
+import { FileUploadModule } from "ng2-file-upload";
 
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthLogoutComponent } from './components/auth-logout/auth-logout.component';
@@ -69,7 +69,6 @@ const routes: Routes = [
     TripListComponent,
     SingleTripComponent,
     PlaygroundComponent,
-    FileSelectDirective,
     CreateTripComponent,
     HomeComponent,
     SearchComponent,
@@ -95,7 +94,8 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes),
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FileUploadModule
   ],
   exports: [],
   providers: [TripService, AuthService, RequireAuthService, UserService],
