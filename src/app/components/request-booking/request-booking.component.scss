@@ -89,8 +89,10 @@
   width: 86%;
   -webkit-transition: background-color 200ms;
   border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .button:hover {
-  background-color: #333;
+  background-color: #1488C1;
 }
