@@ -9,7 +9,7 @@
     "heroku-prebuild": "rm -rf node_modules && npm cache clean --force",
     "ng": "ng",
     "postinstall": "ng build --aot -prod",
-    "start": "node app.js",
+    "start": "node express.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
