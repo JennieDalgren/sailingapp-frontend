@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../../models/user.model';
-import { AuthService } from '../../services/auth.service';
 
+import { AuthService } from '../../services/auth.service';
+import { TripService } from '../../services/trip.service';
+import { User } from '../../models/user.model';
+import { Trip } from '../../models/trip.model';
 
 @Component({
   selector: 'app-single-trip-page',
@@ -10,18 +12,27 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./single-trip-page.component.scss']
 })
 export class SingleTripPageComponent implements OnInit, OnDestroy {
-  tripId: string;
+  trip: Trip;
   user: User;
   subscriptions = [];
 
-  constructor(private ActivatedRoute: ActivatedRoute, private auth: AuthService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private tripService: TripService,
+    private auth: AuthService
+ ) { }
+
+  private loadTrip() {
+    let routeParamsSubscription = this.activatedRoute.params.subscribe(params => {
+      this.tripService.getTrip(params['id']).subscribe((data) => this.trip = data);
+    });
+    this.subscriptions.push(routeParamsSubscription);
+  }
 
   ngOnInit() {
-
+    this.loadTrip();
     this.user = this.auth.getUser();
-    let tripSubscription = this.ActivatedRoute.params.subscribe(params=>this.tripId = params['id']);
     let userSubscription = this.auth.userChange$.subscribe((user) => this.user = user);
-    this.subscriptions.push(tripSubscription);
     this.subscriptions.push(userSubscription);
   }
 

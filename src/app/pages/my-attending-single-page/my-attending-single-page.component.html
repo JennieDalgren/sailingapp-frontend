@@ -1,4 +1,5 @@
 <app-header></app-header>
 
-<app-single-trip [tripId]="tripId"></app-single-trip>
-<p>Status of booking goes here</p>
+<p>{{myBooking|json}}</p>
+
+<app-single-trip [trip]="trip"></app-single-trip>

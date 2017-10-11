@@ -1,4 +1,14 @@
 
 <app-header></app-header>
 
-<app-single-trip [tripId]="tripId"></app-single-trip>
+<div *ngIf="trip && user">
+  <div class="trip-facts" *ngIf="trip.host._id === user.id">
+    <a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>
+  </div>
+
+  <app-single-trip [trip]="trip"></app-single-trip>
+
+  <div class="trip-facts" *ngIf="trip.host._id !== user.id">
+    <a class="button" [routerLink]="['/request', tripId]">Request to book</a>
+  </div>
+</div>

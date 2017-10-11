@@ -1,6 +1,7 @@
 <app-header></app-header>
 
 <div *ngIf="trip">
+  <div *ngIf="!trip.bookings.length" class="header-somthing">no bookings yet :(</div>
   <div *ngIf="trip.bookings.length" class="header-somthing">you got bookings!</div>
   <div *ngFor="let booking of trip.bookings">
     {{booking.message}}
@@ -22,5 +23,5 @@
 
 </div>
 
-<app-single-trip [tripId]="tripId"></app-single-trip>
+<app-single-trip [trip]="trip"></app-single-trip>
 <!--app-single-trip-bookings [tripId]="tripId"></app-single-trip-bookings-->

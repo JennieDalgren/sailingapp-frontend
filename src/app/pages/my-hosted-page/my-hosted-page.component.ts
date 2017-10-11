@@ -22,13 +22,14 @@ export class MyHostedPageComponent implements OnInit {
   subscriptions = [];
   type: string = "host";
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private tripService: TripService,
-              private userService: UserService,
-              private authService: AuthService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private tripService: TripService,
+    private userService: UserService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
-    this.tripService.setTrip()
     this.tripService.getHostedTrips()
       .subscribe((data) => {
         this.hosted = data;

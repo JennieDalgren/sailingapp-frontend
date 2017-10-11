@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import { TripService } from '../../services/trip.service';
+import { User } from '../../models/user.model';
+import { Trip } from '../../models/trip.model';
 
 @Component({
   selector: 'app-my-attending-single-page',
@@ -12,31 +14,41 @@ import { AuthService } from '../../services/auth.service';
 export class MyAttendingSinglePageComponent implements OnInit {
 
   user: User;
-  tripId: string;
+  trip: Trip;
   subscriptions = [];
+  myBooking: Object;
 
-  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private tripService: TripService,
+    private auth: AuthService
+ ) { }
+
+
+ private loadTrip() {
+   let routeParamsSubscription = this.activatedRoute.params.subscribe(params => {
+     this.tripService.getTrip(params['id']).subscribe((data) => {
+       this.trip = data;
+       this.myBooking = this.trip.bookings.find((booking) => booking.userId._id  === this.user.id)
+     });
+   });
+   this.subscriptions.push(routeParamsSubscription);
+ }
 
   private setUser(user: User | null) {
+    this.user = user;
     if (this.user) {
-      let tripSubscription = this.activatedRoute.params.subscribe(params=>this.tripId = params['id']);
-      this.subscriptions.push(tripSubscription);
-
-      // load this.trip
-        // this.myBooking = this.trip.bookings.find((booking) => booking.userId._id  === this.user.id)
-
+      this.loadTrip();
     }
   }
 
   ngOnInit() {
-    this.setUser(this.authService.getUser());
-    this.authService.userChange$.subscribe((user) => {
-      this.setUser(user);
-    });
+    this.setUser(this.auth.getUser());
+    this.auth.userChange$.subscribe((user) => this.setUser(user));
   }
 }
 
-// 
+//
 //
 //
 // <div *ngIf="trip && myBooking.status = 'pending'">

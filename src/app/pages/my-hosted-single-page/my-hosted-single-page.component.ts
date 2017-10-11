@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { TripService } from '../../services/trip.service';
@@ -9,18 +9,16 @@ import { Trip } from '../../models/trip.model';
   templateUrl: './my-hosted-single-page.component.html',
   styleUrls: ['./my-hosted-single-page.component.scss']
 })
-export class MyHostedSinglePageComponent implements OnInit {
+export class MyHostedSinglePageComponent implements OnInit, OnDestroy {
 
-  tripId: string;
   subscriptions = [];
   trip: Trip;
 
   constructor(private activatedRoute: ActivatedRoute, private tripService: TripService) { }
 
   ngOnInit() {
-    let tripSubscription = this.activatedRoute.params.subscribe(params=>{
-      this.tripId = params['id'];
-      this.tripService.getTrip(this.tripId).subscribe((data) => this.trip = data);
+    let tripSubscription = this.activatedRoute.params.subscribe(params => {
+      this.tripService.getTrip(params['id']).subscribe((data) => this.trip = data);
     });
     this.subscriptions.push(tripSubscription);
   }
@@ -37,13 +35,9 @@ export class MyHostedSinglePageComponent implements OnInit {
       booking.confirming = false;
       booking.rejecting = false;
     });
+  }
 
-
-        // call the service to update booking status   someMethod(this.trip.id, booking._id, 'confirmed'); -> http.put(....., {status : }
-    // .susbscribe(() => {
-    //   booking.processing = false;
-    //   booking.confirming = false;
-    //   booking.status  = 'confirmed';
-    // //});
+  ngOnDestroy() {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }

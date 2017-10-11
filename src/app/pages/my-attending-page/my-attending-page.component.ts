@@ -21,13 +21,14 @@ export class MyAttendingPageComponent implements OnInit {
   type: string = "attending";
 
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private tripService: TripService,
-              private userService: UserService,
-              private authService: AuthService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private tripService: TripService,
+    private userService: UserService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
-    this.tripService.setTrip();
     this.tripService.getAttendingTrips()
       .subscribe((data) => {
         this.attending = data;

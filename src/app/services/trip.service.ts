@@ -13,14 +13,7 @@ const apiUrl = environment.apiUrl + '/trips/';
 export class TripService {
   new: any = {};
 
-  private trip: Trip;
-
-
   constructor(private http: Http) { }
-
-  setTrip() : Trip {
-    return this.trip;
-  }
 
   getTripList(){
     let options = new RequestOptions();

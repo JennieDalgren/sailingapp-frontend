@@ -1,29 +1,26 @@
-<div [ngSwitch]="type">
 
-
-    <div class="list">
-      <div class="card" *ngFor="let trip of trips">
-        <div class="item">
-          <a [routerLink]="['/', type, trip.id]">
-            <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.photos + ')'}"></header>
-          </a>
-          <article>
-            <h2>{{trip.startLocation}} - {{trip.endLocation}}</h2>
-            <span class="dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
-          </article>
-        </div>
-        <div class="item-footer">
-          <div class="description">{{trip.name}}</div>
-          <div class="price">{{trip.price}} €</div>
-        </div>
-      </div>
+<div class="list {{type}}">
+  <div class="card" *ngFor="let trip of trips">
+    <div class="item">
+      <a [routerLink]="['/', type, trip.id]">
+        <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.photos + ')'}"></header>
+      </a>
+      <article>
+        <h2>{{trip.startLocation}} - {{trip.endLocation}}</h2>
+        <span class="dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
+      </article>
     </div>
-
-  <!-- This will be shown if there are no trips in the different lists -->
-  <div *ngIf="!trips.length">
-    <div *ngSwitchCase="'all'">
-      <h3>No Matches</h3>
+    <div class="item-footer">
+      <div class="description">{{trip.name}}</div>
+      <div class="price">{{trip.price}} €</div>
     </div>
+  </div>
+</div>
+
+<!-- This will be shown if there are no trips in the different lists -->
+<div *ngIf="!trips.length">
+  <div [ngSwitch]="type">
+
     <div *ngSwitchCase="'host'">
       <h3>You haven't created any trips yet</h3>
     </div>
@@ -32,7 +29,4 @@
       <h3>You have not booked any trips</h3>
     </div>
   </div>
-
-
-
 </div>
