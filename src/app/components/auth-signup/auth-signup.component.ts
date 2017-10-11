@@ -30,7 +30,7 @@ export class AuthSignupComponent {
     (user) => {
       if(user.email){
           this.user = user,
-          this.router.navigate(['/user']);
+          this.router.navigate(['/home']);
       } else {this.message}
     },
     (err) => this.error = err

@@ -71,7 +71,7 @@ export class TripService {
   confirmBooking(tripId, bookingId){
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.post(`http://localhost:3000/trips/${tripId}/booking/${bookingId}`, options)
+    return this.http.put(`http://localhost:3000/trips/${tripId}/booking/${bookingId}`, options)
     .map((res: Response) => {
        return res.json()
     })
