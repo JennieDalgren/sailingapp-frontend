@@ -1,15 +1,25 @@
+<div class="header">
+  <a class="logo"[routerLink]="['/home']">Sailaroo</a>
+</div>
 
-<form [ngClass]="{'has-error': error}" novalidate>
-  <div class="form-group field" [ngClass]="{'has-error': error}">
-    <label>Email</label>
-    <input type="text" [(ngModel)]="user.email" name="email" required/>
+<div class="flex-center">
+  <div class="form-container">
+    <form [ngClass]="{'has-error': error}" novalidate>
+      <div class="form-item field" [ngClass]="{'has-error': error}">
+        <label class="label">Email</label>
+        <input type="text" [(ngModel)]="user.email" name="email" required/>
+      </div>
+      <div class="form-item field" [ngClass]="{'has-error': error}">
+        <label class="label">Password</label>
+        <input type="password" [(ngModel)]="user.password" name="password" required/>
+      </div>
+      <div class="form-item actions">
+        <button class="button" (click)="login()">Login</button>
+        <p *ngIf="error" class="error">{{error}}</p>
+      </div>
+      <div class="form-item">
+        <p> Not yet a member? <a [routerLink]="['/signup']">signup</a></p>
+      </div>
+    </form>
   </div>
-  <div class="form-group field" [ngClass]="{'has-error': error}">
-    <label>Password</label>
-    <input type="password" [(ngModel)]="user.password" name="password" required/>
-  </div>
-  <div class="form-group actions">
-    <button (click)="login()">login</button>
-    <p *ngIf="error" class="error">{{error}}</p>
-  </div>
-</form>
+</div>

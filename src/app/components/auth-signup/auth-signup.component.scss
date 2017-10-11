@@ -1,7 +1,4 @@
 @import '../../../variables';
-#secret-input {
-  display: none;
-}
 
 .button {
   background-color: $primary;
@@ -27,16 +24,37 @@
   background-color: #1488C1;
 }
 
+a {
+  color: $primary;
+  font-weight: $medium;
+}
+
+.logo {
+  color: $primary;
+  font-weight: $bold;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 30px 20px 0 20px;
+}
+
 .flex-center {
   width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .form-container {
   width: 80%;
-  max-width: 640px;
+  max-width: 520px;
 }
 
 .form-item {
@@ -50,7 +68,7 @@
   width: 100%;
   text-transform: uppercase;
   font-size: 12px;
-  color: $gray;
+  color: $dark;
   display: block;
   font-weight: $bold;
   margin-bottom: 4px;
@@ -63,5 +81,4 @@ input, textarea {
   border-bottom: 1px solid $gray;
   outline: none;
   line-height: 24px;
-  margin-bottom: 8px;
 }

@@ -1,54 +1,61 @@
 <app-header></app-header>
 
-<h2>Create Trip</h2>
+<app-user-nav></app-user-nav>
 
-<form class="create-trip" (ngSubmit)="handleCreateTripForm(myForm)" #myForm="ngForm" novalidate>
-  <input type="text" name="photo" [(ngModel)]="formData.fileName" id="secret-input"/>
+<div class="flex-center">
+  <div class="form-container">
+    <div class="form-item">
+      <h2>Create a new trip</h2>
+    </div>
+    <form class="create-trip" (ngSubmit)="handleCreateTripForm(myForm)" #myForm="ngForm" novalidate>
+      <input type="text" name="photo" [(ngModel)]="formData.fileName" id="secret-input"/>
 
-  <div class="field">
-    <label>Start Date</label>
-    <input type="date" name="startDate" #myStartDate=ngModel [(ngModel)]="formData.startDate">
-  </div>
-  <div class="field">
-    <label>End Date</label>
-    <input type="date" name="endDate" #myEndDate=ngModel [(ngModel)]="formData.endDate">
-  </div>
-  <div class="field">
-    <label>Start Location</label>
-    <input type="text" name="startLocation" #myStartLocation=ngModel [(ngModel)]="formData.startLocation">
-  </div>
-  <div class="field">
-    <label>End Location</label>
-    <input type="text" name="endLocation" #myEndLocation=ngModel [(ngModel)]="formData.endLocation">
-  </div>
-  <div class="field">
-    <label>Boat Name</label>
-    <input type="text" name="boat" #myBoat=ngModel [(ngModel)]="formData.boat">
-  </div>
-  <div class="field">
-    <label>Trip Name</label>
-    <input type="text" name="name" #myName=ngModel [(ngModel)]="formData.name">
-  </div>
-  <div class="field">
-    <label>Description</label>
-    <input type="text" name="description" #myDescription=ngModel [(ngModel)]="formData.description">
-  </div>
-  <div class="field">
-    <label>Price</label>
-    <input type="text" name="price" #myPrice=ngModel [(ngModel)]="formData.price">
-  </div>
-  <div class="field">
-    <label>Available Spots</label>
-    <input type="number" name="availableSpots" #myAvailableSpots=ngModel [(ngModel)]="formData.availableSpots">
-  </div>
+      <div class="form-item">
+        <label class="label">Trip Name</label>
+        <input type="text" name="name" #myName=ngModel [(ngModel)]="formData.name">
+      </div>
+      <div class="form-item">
+        <label class="label">Start Location</label>
+        <input type="text" name="startLocation" #myStartLocation=ngModel [(ngModel)]="formData.startLocation">
+      </div>
+      <div class="form-item">
+        <label class="label">End Location</label>
+        <input type="text" name="endLocation" #myEndLocation=ngModel [(ngModel)]="formData.endLocation">
+      </div>
+      <div class="form-item">
+        <label class="label">Description</label>
+        <input type="text" name="description" #myDescription=ngModel [(ngModel)]="formData.description">
+      </div>
+      <div class="form-item">
+        <label class="label">Start Date</label>
+        <input type="date" name="startDate" #myStartDate=ngModel [(ngModel)]="formData.startDate">
+      </div>
+      <div class="form-item">
+        <label class="label">End Date</label>
+        <input type="date" name="endDate" #myEndDate=ngModel [(ngModel)]="formData.endDate">
+      </div>
+      <div class="form-item">
+        <label class="label">Boat Name</label>
+        <input type="text" name="boat" #myBoat=ngModel [(ngModel)]="formData.boat">
+      </div>
+      <div class="form-item">
+        <label class="label">Price</label>
+        <input type="text" name="price" #myPrice=ngModel [(ngModel)]="formData.price">
+      </div>
+      <div class="form-item">
+        <label class="label">Available Spots</label>
+        <input type="number" name="availableSpots" #myAvailableSpots=ngModel [(ngModel)]="formData.availableSpots">
+      </div>
 
-  <div class="field" [ngClass]="{'has-error': uploadRequired}">
-    <label>Upload Photos</label>
-    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-    <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
-  </div>
+      <div class="form-item" [ngClass]="{'has-error': uploadRequired}">
+        <label class="label">Upload Photos</label>
+        <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+        <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
+      </div>
 
-  <div class="field">
-    <button type="submit">Submit</button>
+      <div class="form-item">
+        <button class="button" type="submit">Submit</button>
+      </div>
+    </form>
   </div>
-</form>
+</div>

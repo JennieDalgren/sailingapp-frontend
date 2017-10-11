@@ -7,8 +7,8 @@
 </div>
 
 <div *ngIf="!loading">
-
+  <a class="button" [routerLink]="['/create']" >Create a new trip</a>
   <app-trip-list [trips]="hosted" [type]="type"></app-trip-list>
-  <a class="button" [routerLink]="['/create']" >Create Trip</a>
+
 
 </div>
