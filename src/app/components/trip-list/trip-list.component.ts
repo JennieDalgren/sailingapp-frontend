@@ -20,7 +20,5 @@ export class TripListComponent implements OnInit {
 
   }
 
-  handleConfirm(){
-
-  }
+  
 }

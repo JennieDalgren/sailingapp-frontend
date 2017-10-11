@@ -6,11 +6,11 @@
     {{booking.message}}
     {{booking.userId.name}}
     <div class="pending-actions" *ngIf="booking.status === 'pending'">
-      <button  (click)="confirm(booking)" [disabled]="booking.processing">
+      <button  (click)="handle(booking, 'confirmed')" [disabled]="booking.processing">
         <span class="label">confirm</span>
         <span class="processing"*ngIf="booking.confirming">some gif</span>
       </button>
-      <button (click)="reject(booking)" [disabled]="booking.processing">
+      <button (click)="handle(booking, 'rejected')" [disabled]="booking.processing">
         <span class="label">reject</span>
         <span class="processing"*ngIf="booking.rejecting">some gif</span>
       </button>
@@ -24,7 +24,3 @@
 
 <app-single-trip [tripId]="tripId"></app-single-trip>
 <!--app-single-trip-bookings [tripId]="tripId"></app-single-trip-bookings-->
-
-<div class="trip-facts">
-  <a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>
-</div>

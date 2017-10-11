@@ -25,12 +25,18 @@ export class MyHostedSinglePageComponent implements OnInit {
     this.subscriptions.push(tripSubscription);
   }
 
-  confirm(booking) {
+  handle(booking, status) {
     booking.processing = true;
-    booking.confirming = true;
+    booking.confirming = status === 'confirmed';
+    booking.rejecting = status === 'rejected';
     console.log(this.trip.id, booking._id);
 
-    this.tripService.confirmBooking(this.trip.id, booking._id).subscribe();
+    this.tripService.confirmBooking(this.trip.id, booking._id, status).subscribe(() => {
+      booking.status = status;
+      booking.processing = false;
+      booking.confirming = false;
+      booking.rejecting = false;
+    });
 
 
         // call the service to update booking status   someMethod(this.trip.id, booking._id, 'confirmed'); -> http.put(....., {status : }

@@ -9,7 +9,7 @@ import { TripService } from '../../services/trip.service';
 })
 export class SearchComponent implements OnInit {
   @Output() onSearchUpdated = new EventEmitter<string>();
-
+  trips: Object[];
   searchTerm: string;
   filteredTrips: Object[] = [];
 
