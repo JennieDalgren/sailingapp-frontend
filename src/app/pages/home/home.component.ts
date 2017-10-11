@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { Trip } from '../../models/trip.model';
 import { User } from '../../models/user.model';
 
-const SEARCH_DELAY = 500;
+const SEARCH_DELAY = 0;
 
 @Component({
   selector: 'app-home',
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     const myPattern = new RegExp(searchTerm, 'i');
     this.trips = [];
     this.searching = true;
-    setTimeout(() => {
+    // setTimeout(() => {
       this.trips = this.allTrips.filter((item) => {
         if (item.startLocation && item.startLocation.match(myPattern)) {
           return true;
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
         }
       });
       this.searching = false;
-    }, SEARCH_DELAY);
+    // }, SEARCH_DELAY);
   }
 
 }

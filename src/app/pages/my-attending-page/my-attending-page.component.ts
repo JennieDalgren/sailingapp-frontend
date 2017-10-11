@@ -36,4 +36,6 @@ export class MyAttendingPageComponent implements OnInit {
     });
   }
 
+  
+
 }

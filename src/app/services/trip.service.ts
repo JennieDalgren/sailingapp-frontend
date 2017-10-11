@@ -38,10 +38,10 @@ export class TripService {
     })
   }
 
-  requestBooking(bookingId, booking) {
+  requestBooking(booking, tripId) {
     let options = new RequestOptions();
     options.withCredentials = true;
-    return this.http.post(apiUrl + `${bookingId}`, booking, options)
+    return this.http.post(apiUrl + `${tripId}`, booking, options)
     .map((res: Response) => {
        return res.json()
     })

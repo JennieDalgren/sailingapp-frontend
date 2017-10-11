@@ -9,6 +9,6 @@
   <app-single-trip [trip]="trip"></app-single-trip>
 
   <div class="trip-facts" *ngIf="trip.host._id !== user.id">
-    <a class="button" [routerLink]="['/request', tripId]">Request to book</a>
+    <a class="button" [routerLink]="['/request', trip.id]">Request to book</a>
   </div>
 </div>
