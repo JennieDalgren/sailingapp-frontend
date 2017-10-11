@@ -65,7 +65,6 @@ export class UserComponent implements OnInit {
     this.toggleForm();
   }
 
-  // onFileChange() { this.uploadRequired = false; }
 
   handleUpdateUserForm(myForm) {
 
