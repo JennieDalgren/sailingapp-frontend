@@ -24,6 +24,22 @@
   background-color: #1488C1;
 }
 
+.logo {
+  color: $primary;
+  font-weight: $bold;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 30px 20px 0 20px;
+}
+
+
 a {
   color: $primary;
   font-weight: $medium;

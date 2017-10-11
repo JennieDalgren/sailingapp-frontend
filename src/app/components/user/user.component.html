@@ -32,9 +32,13 @@
 
   </div>
 
-  <div class="flex-center">
-    <div class="form-container">
-      <div *ngIf="update">
+
+  <div *ngIf="update">
+    <div class="flex-center">
+      <div class="form-container">
+        <div class="form-item">
+          <h2>Update your account</h2>
+        </div>
         <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
 
           <div class="form-item" [ngClass]="{'has-error': uploadRequired}">
