@@ -1,18 +1,23 @@
 <app-header></app-header>
+<app-user-nav></app-user-nav>
 
-<div *ngIf="trip">
-  <div *ngIf="!trip.bookings.length" class="header-somthing">no bookings yet :(</div>
-  <div *ngIf="trip.bookings.length" class="header-somthing">you got bookings!</div>
-  <div *ngFor="let booking of trip.bookings">
-    {{booking.message}}
-    {{booking.userId.name}}
+
+<div *ngIf="trip" class="booking-bar">
+  <div *ngIf="!trip.bookings.length" class="title">No bookings yet :(</div>
+  <div *ngIf="trip.bookings.length" class="title">You've got bookings for this trip!</div>
+  <div *ngFor="let booking of trip.bookings" class="booking-item">
+
+    <span class="name">{{booking.userId.name}} - <em>({{booking.guestcount}} guests)</em></span>
+    <span class="label">message</span>
+    <span class="message">{{booking.message}} - {{booking.status}}</span>
+
     <div class="pending-actions" *ngIf="booking.status === 'pending'">
-      <button  (click)="handle(booking, 'confirmed')" [disabled]="booking.processing">
-        <span class="label">confirm</span>
+      <button class="confirm" (click)="handle(booking, 'confirmed')" [disabled]="booking.processing">
+        <span>confirm</span>
         <span class="processing"*ngIf="booking.confirming">some gif</span>
       </button>
-      <button (click)="handle(booking, 'rejected')" [disabled]="booking.processing">
-        <span class="label">reject</span>
+      <button class="reject" (click)="handle(booking, 'rejected')" [disabled]="booking.processing">
+        <span>reject</span>
         <span class="processing"*ngIf="booking.rejecting">some gif</span>
       </button>
     </div>
@@ -20,8 +25,8 @@
       Yeah {{booking.status}}!
     </div>
   </div>
-
 </div>
+
 
 <app-single-trip [trip]="trip"></app-single-trip>
 <!--app-single-trip-bookings [tripId]="tripId"></app-single-trip-bookings-->
