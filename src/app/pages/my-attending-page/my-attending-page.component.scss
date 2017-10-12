@@ -1,9 +1,9 @@
 @import '../../../variables';
 
-.container {
-  text-align: center;
-  min-height: 380px;
-}
+// .container {
+//   text-align: center;
+//   min-height: 380px;
+// }
 
 .button {
   background-color: $primary;
@@ -24,4 +24,8 @@
 
 .button:hover {
   background-color: #333;
+}
+
+.center {
+  text-align: center;
 }

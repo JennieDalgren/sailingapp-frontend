@@ -11,6 +11,7 @@ import { Trip } from '../../models/trip.model';
   templateUrl: './my-attending-single-page.component.html',
   styleUrls: ['./my-attending-single-page.component.scss']
 })
+
 export class MyAttendingSinglePageComponent implements OnInit {
 
   user: User;

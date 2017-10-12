@@ -1,4 +1,5 @@
 
+
 <div class="list {{type}}">
   <div class="card" *ngFor="let trip of trips">
     <div class="item">
@@ -13,21 +14,6 @@
     <div class="item-footer">
       <div class="description">{{trip.name}}</div>
       <div class="price">{{trip.price}} €</div>
-    </div>
-  </div>
-</div>
-
-<!-- This will be shown if there are no trips in the different lists -->
-<div *ngIf="!trips.length">
-  <div [ngSwitch]="type">
-
-    <div *ngSwitchCase="'host'">
-      <img src="../../../assets/images/boat.png" width="221">
-      <h3>You haven't created any trips yet</h3>
-    </div>
-    <div *ngSwitchCase="'attending'">
-      <img src="../../../assets/images/compass.png" width="251">
-      <h3>You have not booked any trips</h3>
     </div>
   </div>
 </div>

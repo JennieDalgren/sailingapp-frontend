@@ -13,9 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RequestBookingPageComponent implements OnInit {
 
   tripId: string;
-
   subscriptions = [];
-
 
   constructor(private activatedRoute: ActivatedRoute, private tripService: TripService, private router: Router) { }
 
@@ -27,6 +25,4 @@ export class RequestBookingPageComponent implements OnInit {
   ngOnDestroy() {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
-
-
 }

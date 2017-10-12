@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { TripService } from '../../services/trip.service';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+
 import { User } from '../../models/user.model';
 import { Trip } from '../../models/trip.model';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-my-hosted-page',
   templateUrl: './my-hosted-page.component.html',
   styleUrls: ['./my-hosted-page.component.scss']
 })
+
 export class MyHostedPageComponent implements OnInit {
   trips: Object[];
   tripId: string;
@@ -36,5 +40,4 @@ export class MyHostedPageComponent implements OnInit {
         this.loading = false;
     });
   }
-
 }

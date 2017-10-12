@@ -3,8 +3,11 @@
 
 <app-user-nav *ngIf="user"></app-user-nav>
 
-<div *ngIf="trip && user">
+<div *ngIf="!user" class="title">
+  <span>You need to login to see more info.</span>
+</div>
 
+<div *ngIf="trip && user">
 
   <app-single-trip [trip]="trip"></app-single-trip>
 
@@ -15,4 +18,5 @@
   <div class="trip-facts" *ngIf="trip.host._id === user.id">
     <a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>
   </div>
+
 </div>

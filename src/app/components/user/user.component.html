@@ -1,8 +1,11 @@
-<div *ngIf="!user">...</div>
+<div *ngIf="!user">
+  <!-- loading -->
+</div>
 
 <div *ngIf="user" class="user-page">
 
   <div *ngIf="!update">
+
     <div class="user-header-big">
       <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
       <h2 class="user-name">{{user.name}}</h2>
@@ -21,10 +24,8 @@
         <span class="bio-label">phonenumber</span>
         <span class="bio-data">+{{user.phoneNumber}}</span>
       </div>
-    </div>
 
-    <!-- here I need the trips from this user if it's not self  -->
-    <!-- <app-trip-list [trips]="trips"></app-trip-list> -->
+    </div>
 
     <div class="bio">
       <a class="button" href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">Send a message</a>
@@ -32,13 +33,15 @@
 
   </div>
 
-
+  
   <div *ngIf="update">
     <div class="flex-center">
       <div class="form-container">
+
         <div class="form-item">
           <h2>Update your account</h2>
         </div>
+
         <form class="update-user" (ngSubmit)="handleUpdateUserForm(myForm)" #myUserForm="ngForm" novalidate [ngClass]="{saving: saving}">
 
           <div class="form-item" [ngClass]="{'has-error': uploadRequired}">
@@ -66,6 +69,7 @@
             <button class="button" type="submit" [disabled]="saving">Submit</button>
             <button class="button-cancel" type="cancel" (click)="cancel()" [disabled]="saving">Cancel</button>
           </div>
+
         </form>
       </div>
     </div>

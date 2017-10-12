@@ -2,16 +2,16 @@
 <app-user-nav></app-user-nav>
 
 <div *ngIf="loading">
-  ...
+  <!-- loading -->
 </div>
 
 <div *ngIf="!loading">
-  <div class="container">
-
-    <app-trip-list [trips]="attending" [type]="type"></app-trip-list>
-    <!-- <a class="button" [routerLink]="['/home']">Join a trip</a> -->
-  </div>
+  <app-trip-list [trips]="attending" [type]="type"></app-trip-list>
+</div>
 
 
 
+<div *ngIf="attending.length === 0  && !loading" class="center">
+  <img src="../../../assets/images/compass.png" width="251">
+  <h3>You have not booked any trips</h3>
 </div>

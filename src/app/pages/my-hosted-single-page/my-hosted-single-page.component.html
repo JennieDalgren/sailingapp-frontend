@@ -14,19 +14,18 @@
     <div class="pending-actions" *ngIf="booking.status === 'pending'">
       <button class="confirm" (click)="handle(booking, 'confirmed')" [disabled]="booking.processing">
         <span>confirm</span>
-        <span class="processing"*ngIf="booking.confirming">some gif</span>
+        <span class="processing"*ngIf="booking.confirming">...</span>
       </button>
       <button class="reject" (click)="handle(booking, 'rejected')" [disabled]="booking.processing">
         <span>reject</span>
-        <span class="processing"*ngIf="booking.rejecting">some gif</span>
+        <span class="processing"*ngIf="booking.rejecting">...</span>
       </button>
     </div>
     <div *ngIf="booking.status !== 'pending'">
-      Yeah {{booking.status}}!
+      <span>The booking is {{booking.status}}!</span>
     </div>
   </div>
 </div>
 
 
 <app-single-trip [trip]="trip"></app-single-trip>
-<!--app-single-trip-bookings [tripId]="tripId"></app-single-trip-bookings-->

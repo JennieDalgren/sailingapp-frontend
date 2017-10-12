@@ -1,6 +1,6 @@
 
 <div *ngIf="!trip">
-... loading
+  <!-- loading -->
 </div>
 
 <div *ngIf="trip">
@@ -9,7 +9,7 @@
     <h2 class="trip-title">{{trip.name}}</h2>
     <span class="trip-dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
   </div>
-  
+
   <form class="request-booking" (ngSubmit)="handleRequestBooking(bookingForm)" #bookingForm="ngForm" novalidate>
 
     <div class="trip-facts">
@@ -29,7 +29,7 @@
         <span class="facts-data"><textarea rows="4" name="message" #myMessage=ngModel [(ngModel)]="bookingFormData.message"></textarea></span>
       </div>
 
-      <button type="submit" class="button">Confirm booking</button>
+      <button type="submit" class="button">Book</button>
 
     </div>
 

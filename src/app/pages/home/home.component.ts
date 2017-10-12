@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { Trip } from '../../models/trip.model';
 import { User } from '../../models/user.model';
 
-const SEARCH_DELAY = 0;
+const SEARCH_DELAY = 300;
 
 @Component({
   selector: 'app-home',
