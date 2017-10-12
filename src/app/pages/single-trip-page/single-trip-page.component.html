@@ -1,6 +1,8 @@
 
 <app-header></app-header>
 
+<app-user-nav *ngIf="user"></app-user-nav>
+
 <div *ngIf="trip && user">
 
 
@@ -9,7 +11,7 @@
   <div class="trip-facts" *ngIf="trip.host._id !== user.id">
     <a class="button" [routerLink]="['/request', trip.id]">Request to book</a>
   </div>
-  
+
   <div class="trip-facts" *ngIf="trip.host._id === user.id">
     <a class="button" [routerLink]="['/manage-trip', tripId]">Manage trip</a>
   </div>

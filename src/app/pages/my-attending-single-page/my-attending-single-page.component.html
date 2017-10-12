@@ -1,5 +1,7 @@
 <app-header></app-header>
 
-<p>Your booking is {{myBooking.status}}</p>
+<div class="booking-bar" *ngIf="myBooking">
+  <h2 class="title">Your booking is {{myBooking.status}}</h2>
+</div>
 
 <app-single-trip [trip]="trip"></app-single-trip>

@@ -1,6 +1,9 @@
 
 <app-header></app-header>
 
+<app-user-nav *ngIf="user"></app-user-nav>
+
+
 <div *ngIf="loading">
   ...
 </div>
@@ -10,12 +13,13 @@
 
   <app-trip-list [trips]="trips" [type]="'all'"></app-trip-list>
 
-  <div *ngIf="searching">
+  <div *ngIf="searching" class="center">
     <h3>...</h3>
   </div>
 
-  <div *ngIf="!searching && !trips.length">
-    <h3>No Matches</h3>
+  <div *ngIf="!searching && !trips.length" class="center">
+    <img src="../../../assets/images/boat.png" width="221">
+    <h3>We could not find a boat for you...</h3>
   </div>
 
   <app-auth-logout *ngIf="user"></app-auth-logout>

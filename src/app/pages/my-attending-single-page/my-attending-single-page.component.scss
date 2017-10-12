@@ -1,0 +1,19 @@
+@import '../../../variables';
+
+.booking-bar {
+  background-color: $primary;
+  padding: 20px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  color: $white;
+  font-weight: $medium;
+  margin-bottom: 24px;
+  margin-top: 24px;
+}

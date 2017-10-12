@@ -6,7 +6,7 @@
         <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.photos + ')'}"></header>
       </a>
       <article>
-        <h2>{{trip.startLocation}} - {{trip.endLocation}}</h2>
+        <h2><img src="../../../assets/images/location.png" width="16" height="22" class="location-icon" />{{trip.startLocation}} - {{trip.endLocation}}</h2>
         <span class="dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
       </article>
     </div>
