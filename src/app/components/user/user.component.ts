@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-
 import { User } from '../../models/user.model';
 import { environment } from '../../../environments/environment';
-
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload.js';
 
 const URL = environment.apiUrl + '/auth/upload/';

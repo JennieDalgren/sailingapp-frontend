@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-auth-signup',
@@ -10,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./auth-signup.component.min.css']
 })
 
-export class AuthSignupComponent {
+export class AuthSignupComponent implements OnDestroy {
 
   user = new User({
     name: '',
@@ -21,19 +20,26 @@ export class AuthSignupComponent {
 
   error: string;
   message: string;
+  subscriptions = [];
 
   constructor(private auth: AuthService, private router: Router) { }
 
-  signup() {
+  signup(){
   this.error = null;
-  this.auth.signup(this.user).subscribe(
+  let authSubscription = this.auth.signup(this.user).subscribe(
     (user) => {
       if(user.email){
           this.user = user,
           this.router.navigate(['/home']);
       } else {this.message}
     },
-    (err) => this.error = err
-  );
+    (err) => this.error = err );
+    this.subscriptions.push(authSubscription);
+
+  }
+
+
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }

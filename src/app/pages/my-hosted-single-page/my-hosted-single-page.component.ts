@@ -27,7 +27,6 @@ export class MyHostedSinglePageComponent implements OnInit, OnDestroy {
     booking.processing = true;
     booking.confirming = status === 'confirmed';
     booking.rejecting = status === 'rejected';
-    console.log(this.trip.id, booking._id);
 
     this.tripService.confirmBooking(this.trip.id, booking._id, status).subscribe(() => {
       booking.status = status;

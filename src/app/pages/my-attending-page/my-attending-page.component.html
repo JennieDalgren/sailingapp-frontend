@@ -2,6 +2,7 @@
 <app-user-nav></app-user-nav>
 
 <div class="container">
+
   <div *ngIf="loading">
     <!-- loading -->
   </div>
@@ -10,10 +11,9 @@
     <app-trip-list [trips]="attending" [type]="type"></app-trip-list>
   </div>
 
-
-
   <div *ngIf="attending && attending.length === 0  && !loading" class="center">
     <img src="../../../assets/images/compass.png" width="251">
     <h3>You have not booked any trips</h3>
   </div>
+
 </div>

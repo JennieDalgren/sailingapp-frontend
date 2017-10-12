@@ -34,10 +34,16 @@ export class MyHostedPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tripService.getHostedTrips()
+    let tripSubscription = this.tripService.getHostedTrips()
       .subscribe((data) => {
         this.hosted = data;
         this.loading = false;
     });
+    this.subscriptions.push(tripSubscription);
   }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
+
 }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-
-import { environment } from '../../../environments/environment';
-import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
+import { environment } from '../../../environments/environment';
 
 const apiUrl = environment.apiUrl;
 
@@ -16,7 +15,7 @@ export class AuthUserComponent implements OnInit {
 
   apiUrl = apiUrl;
   user: User;
-  // formsVisible: boolean = false;
+  subscriptions = [];
 
   constructor(private authService: AuthService) { }
 
@@ -26,10 +25,14 @@ export class AuthUserComponent implements OnInit {
 
   ngOnInit() {
     this.setUser(this.authService.getUser());
-    this.authService.userChange$.subscribe((user) => {
+    let authSubscription = this.authService.userChange$.subscribe((user) => {
       this.setUser(user);
     });
+    this.subscriptions.push(authSubscription);
   }
 
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
 
 }

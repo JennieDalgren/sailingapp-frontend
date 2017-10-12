@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgSwitch } from '@angular/common';
-import { environment } from '../../../environments/environment';
-
 import { Trip } from '../../models/trip.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-single-trip',

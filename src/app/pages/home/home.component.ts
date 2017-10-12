@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgSwitch } from '@angular/common';
-
 import { TripService } from '../../services/trip.service';
 import { AuthService } from '../../services/auth.service';
 import { Trip } from '../../models/trip.model';
@@ -20,6 +18,7 @@ export class HomeComponent implements OnInit {
   loading: boolean = true;
   user: User;
   type: string = 'all';
+  subscriptions = [];
 
   constructor(private tripService: TripService, private auth: AuthService) { }
 
@@ -29,16 +28,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.setUser(this.auth.getUser());
-    this.auth.userChange$.subscribe((user) => {
+    let authSubscription = this.auth.userChange$.subscribe((user) => {
       this.setUser(user);
     });
+    this.subscriptions.push(authSubscription);
 
-    this.tripService.getTripList()
+    let tripSubscription = this.tripService.getTripList()
       .subscribe((data) => {
         this.allTrips = data;
         this.trips = data;
         this.loading = false;
     });
+    this.subscriptions.push(tripSubscription);
   }
 
   handleSearchUpdated(searchTerm) {
@@ -56,6 +57,10 @@ export class HomeComponent implements OnInit {
       });
       this.searching = false;
     // }, SEARCH_DELAY);
+  }
+
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
 }

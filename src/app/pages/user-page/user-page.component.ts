@@ -1,9 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { TripService } from '../../services/trip.service';
-import { UserService } from '../../services/user.service';
-import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
-import { ActivatedRoute } from '@angular/router';
+
 
 
 
@@ -18,10 +15,9 @@ export class UserPageComponent implements OnInit {
   userId: string;
   hosted: Object;
   attending: Object;
-
   user: User;
-  subscriptions = [];
-  constructor(private activatedRoute: ActivatedRoute, private tripService: TripService, private userService: UserService, private authService: AuthService) { }
+
+  constructor() { }
 
   ngOnInit() {
   }

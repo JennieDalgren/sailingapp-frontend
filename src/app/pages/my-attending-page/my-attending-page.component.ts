@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { TripService } from '../../services/trip.service';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
-
 import { Trip } from '../../models/trip.model';
 import { User } from '../../models/user.model';
-
 
 @Component({
   selector: 'app-my-attending-page',
@@ -15,7 +12,8 @@ import { User } from '../../models/user.model';
   styleUrls: ['./my-attending-page.component.scss']
 })
 
-export class MyAttendingPageComponent implements OnInit  {
+export class MyAttendingPageComponent implements OnInit, OnDestroy {
+
   trips: Object[];
   tripId: string;
   userId: string;
@@ -34,11 +32,16 @@ export class MyAttendingPageComponent implements OnInit  {
   ) { }
 
   ngOnInit() {
-    this.tripService.getAttendingTrips()
+    let tripSubscription = this.tripService.getAttendingTrips()
       .subscribe((data) => {
         this.attending = data;
         this.loading = false;
     });
+    this.subscriptions.push(tripSubscription);
+  }
+
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
 }

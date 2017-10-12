@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { AuthService } from '../../services/auth.service';
-
 import { User } from '../../models/user.model';
 
 
@@ -11,11 +9,12 @@ import { User } from '../../models/user.model';
   templateUrl: './auth-logout.component.html',
   styleUrls: ['./auth-logout.component.min.css']
 })
-export class AuthLogoutComponent implements OnInit {
+export class AuthLogoutComponent implements OnInit, OnDestroy {
   showButton: boolean = true;
   user: User;
-  constructor( private auth: AuthService, private router: Router) { }
+  subscriptions = [];
 
+  constructor( private auth: AuthService, private router: Router) { }
 
   private setUser(user: User | null) {
     this.user = user;
@@ -23,18 +22,22 @@ export class AuthLogoutComponent implements OnInit {
 
   ngOnInit() {
     this.setUser(this.auth.getUser());
-    this.auth.userChange$.subscribe((user) => {
+    let userSubscription = this.auth.userChange$.subscribe((user) => {
       this.setUser(user);
     });
+    this.subscriptions.push(userSubscription);
   }
   // get rid of the navigate?
   logout() {
-    this.auth.logout().subscribe(()=>{
+    let authSubscription = this.auth.logout().subscribe(()=>{
       this.router.navigate(['/home']);
     });
-
     this.showButton = false;
+    this.subscriptions.push(authSubscription);
   }
 
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
 
 }

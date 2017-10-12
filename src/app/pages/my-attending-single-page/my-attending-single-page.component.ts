@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { AuthService } from '../../services/auth.service';
 import { TripService } from '../../services/trip.service';
 import { User } from '../../models/user.model';
@@ -12,7 +11,7 @@ import { Trip } from '../../models/trip.model';
   styleUrls: ['./my-attending-single-page.component.scss']
 })
 
-export class MyAttendingSinglePageComponent implements OnInit {
+export class MyAttendingSinglePageComponent implements OnInit, OnDestroy {
 
   user: User;
   trip: Trip;
@@ -45,6 +44,11 @@ export class MyAttendingSinglePageComponent implements OnInit {
 
   ngOnInit() {
     this.setUser(this.auth.getUser());
-    this.auth.userChange$.subscribe((user) => this.setUser(user));
+    let authSubscription = this.auth.userChange$.subscribe((user) => this.setUser(user));
+    this.subscriptions.push(authSubscription);
+  }
+
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }

@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
-import { AuthService } from '../../services/auth.service';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-auth-login',
   templateUrl: './auth-login.component.html',
   styleUrls: ['./auth-login.component.scss']
 })
-export class AuthLoginComponent {
+export class AuthLoginComponent implements OnDestroy{
 
   user = new User({
     email: '',
@@ -18,12 +17,13 @@ export class AuthLoginComponent {
 
   error: string;
   message: string;
+  subscriptions = [];
 
   constructor(private auth: AuthService, private router: Router) { }
 
   login() {
     this.error = null;
-    this.auth.login(this.user).subscribe(
+    let authSubscription = this.auth.login(this.user).subscribe(
       (user) => {
         if(user.email){
             this.user = user,
@@ -32,6 +32,11 @@ export class AuthLoginComponent {
       },
       (err) => this.error = err
     );
+    this.subscriptions.push(authSubscription);
+  }
+
+  ngOnDestroy(){
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
 }
