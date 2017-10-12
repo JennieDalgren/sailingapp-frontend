@@ -23,9 +23,16 @@ export class HomeComponent implements OnInit {
 
   constructor(private tripService: TripService, private auth: AuthService) { }
 
-  ngOnInit() {
+  private setUser(user: User | null) {
+    this.user = user;
+  }
 
-    this.user = this.auth.getUser();
+  ngOnInit() {
+    this.setUser(this.auth.getUser());
+    this.auth.userChange$.subscribe((user) => {
+      this.setUser(user);
+    });
+
     this.tripService.getTripList()
       .subscribe((data) => {
         this.allTrips = data;

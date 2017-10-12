@@ -14,7 +14,7 @@ import { User } from '../../models/user.model';
 export class AuthLogoutComponent implements OnInit {
   showButton: boolean = true;
   user: User;
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor( private auth: AuthService, private router: Router) { }
 
 
   private setUser(user: User | null) {
@@ -27,10 +27,12 @@ export class AuthLogoutComponent implements OnInit {
       this.setUser(user);
     });
   }
-
+  // get rid of the navigate?
   logout() {
-    this.auth.logout().subscribe();
-    this.router.navigate(['/home']);
+    this.auth.logout().subscribe(()=>{
+      this.router.navigate(['/home']);
+    });
+
     this.showButton = false;
   }
 

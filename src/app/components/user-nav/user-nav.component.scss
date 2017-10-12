@@ -14,7 +14,7 @@
   text-decoration: none;
 }
 
-.tabs-selection a:hover, .tabs-selection a:active {
+.tabs-selection a:hover {
   color: $dark;
   font-weight: $bold;
 }
@@ -23,22 +23,7 @@
   margin: 0 20px;
 }
 
-.button {
-  background-color: $primary;
-  color: $white;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 4px;
-  font-size: 16px;
+.active-tab {
+  color: $dark;
   font-weight: $bold;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  display: block;
-  width: 100%;
-  -webkit-transition: background-color 200ms;
-}
-
-.button:hover {
-  background-color: #333;
 }
