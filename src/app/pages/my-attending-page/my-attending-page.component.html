@@ -12,7 +12,7 @@
 
 
 
-  <div *ngIf="attending.length === 0  && !loading" class="center">
+  <div *ngIf="attending && attending.length === 0  && !loading" class="center">
     <img src="../../../assets/images/compass.png" width="251">
     <h3>You have not booked any trips</h3>
   </div>

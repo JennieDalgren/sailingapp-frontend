@@ -29,8 +29,9 @@ export class RequestBookingComponent implements OnInit {
   }
 
   handleRequestBooking(bookingForm) {
-    this.tripService.requestBooking(this.bookingFormData, this.trip.id).subscribe()
-    this.router.navigate(['/my-attending']);
+    this.tripService.requestBooking(this.bookingFormData, this.trip.id).subscribe(() => {
+      this.router.navigate(['/my-attending']);
+    });
   }
 
 

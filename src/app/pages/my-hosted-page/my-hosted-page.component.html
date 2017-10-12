@@ -10,7 +10,7 @@
   <app-trip-list [trips]="hosted" [type]="type"></app-trip-list>
 </div>
 
-<div *ngIf="hosted.length === 0    && !loading" class="center">
+<div *ngIf="hosted && hosted.length === 0 && !loading" class="center">
   <img src="../../../assets/images/boat.png" width="221">
   <h3>You haven't created any trips yet</h3>
 </div>

@@ -50,7 +50,9 @@ export class CreateTripComponent implements OnInit {
   }
 
   private submit() {
-    this.tripService.insertNew(this.formData).subscribe();
+    this.tripService.insertNew(this.formData).subscribe(() => {
+      this.router.navigate(['/my-hosted']);
+    });
   }
 
 
@@ -68,7 +70,7 @@ export class CreateTripComponent implements OnInit {
       let data = JSON.parse(response);
       this.formData.fileName = data.fileName;
       this.submit();
-      this.router.navigate(['/my-hosted']);
+
     }
   }
 
