@@ -2,7 +2,8 @@
 
 <div class="list {{type}}">
   <div class="card" *ngFor="let trip of trips">
-    <div class="item">
+
+    <div class="item" *ngIf="trip">
       <a [routerLink]="['/', type, trip.id]">
         <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.photos + ')'}"></header>
       </a>

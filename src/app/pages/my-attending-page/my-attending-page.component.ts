@@ -15,7 +15,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./my-attending-page.component.scss']
 })
 
-export class MyAttendingPageComponent implements OnInit {
+export class MyAttendingPageComponent implements OnInit  {
   trips: Object[];
   tripId: string;
   userId: string;
@@ -40,4 +40,5 @@ export class MyAttendingPageComponent implements OnInit {
         this.loading = false;
     });
   }
+
 }

@@ -68,7 +68,7 @@ export class CreateTripComponent implements OnInit {
       let data = JSON.parse(response);
       this.formData.fileName = data.fileName;
       this.submit();
-      this.router.navigate(['/user']);
+      this.router.navigate(['/my-hosted']);
     }
   }
 
