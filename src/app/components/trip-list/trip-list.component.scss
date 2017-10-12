@@ -84,3 +84,26 @@
   margin-bottom: -5px;
   margin-right: 8px;
 }
+
+.status {
+  border-radius: 10px;
+  height: 20px;
+  display: block;
+  padding: 4px 8px;
+  color: $dark;
+  background-color: $white;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 10px 0px 0px 10px;
+  float: left;
+}
+
+.pending {
+  color: $dark;
+  background-color: yellow;
+}
+
+.confirmed {
+  color: $white;
+  background-color: $primary;
+}

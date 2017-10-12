@@ -1,10 +1,10 @@
 @import '../../../variables';
 
 .tabs-selection {
-  border-bottom: solid 1px $gray;
-  margin: 0 20px;
   padding-bottom: 8px;
-  margin-bottom: 32px;
+  padding: 0 20px;
+  background-color: $white;
+  padding-top: 20px;
 }
 
 .tabs-selection a {
@@ -16,7 +16,6 @@
 
 .tabs-selection a:hover {
   color: $dark;
-  font-weight: $bold;
 }
 
 .container {
@@ -24,6 +23,6 @@
 }
 
 .active-tab {
-  color: $dark;
+  color: $dark !important;
   font-weight: $bold;
 }

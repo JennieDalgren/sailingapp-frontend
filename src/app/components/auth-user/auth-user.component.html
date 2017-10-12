@@ -1,7 +1,8 @@
 
 <div *ngIf="user" class="user">
-  <div><a class="title"[routerLink]="['/user']">{{user.name}}</a></div>
-  <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
+
+    <div><a class="title"[routerLink]="['/user']">{{user.name}}</a></div>
+    <a [routerLink]="['/user']"><div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div></a>
 </div>
 
 <div *ngIf="!user">

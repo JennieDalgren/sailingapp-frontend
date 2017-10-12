@@ -3,7 +3,7 @@
 
 
 <div *ngIf="trip" class="booking-bar">
-  <div *ngIf="!trip.bookings.length" class="title">No bookings yet :(</div>
+  <div *ngIf="!trip.bookings.length" class="title">No bookings yet</div>
   <div *ngIf="trip.bookings.length" class="title">You've got bookings for this trip!</div>
   <div *ngFor="let booking of trip.bookings" class="booking-item">
 
