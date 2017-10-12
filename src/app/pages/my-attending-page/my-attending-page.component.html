@@ -6,7 +6,7 @@
     <!-- loading -->
   </div>
 
-  <div *ngIf="!loading && attending">
+  <div *ngIf="!loading && attending.length !== 0">
     <app-trip-list [trips]="attending" [type]="type"></app-trip-list>
   </div>
 

@@ -19,7 +19,7 @@ export class MyHostedPageComponent implements OnInit {
   trips: Object[];
   tripId: string;
   userId: string;
-  hosted: Object;
+  hosted: Object[];
   loading: boolean = true;
   trip: Trip;
   user: User;
