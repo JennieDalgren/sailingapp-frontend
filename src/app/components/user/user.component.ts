@@ -51,7 +51,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-  private submit() {
+  private submitForm() {
     this.saving = true;
     this.authService.updateUser(this.editUser).subscribe(() => {
       this.saving = false;
@@ -72,11 +72,11 @@ export class UserComponent implements OnInit {
       this.uploader.onCompleteItem = (item, response) => {
         let data = JSON.parse(response);
         this.editUser.photo = data.userFileName;
-        this.submit();
+        this.submitForm();
       };
     }
     else {
-      this.submit();
+      this.submitForm();
     }
   }
 
