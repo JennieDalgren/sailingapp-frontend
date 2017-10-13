@@ -30,6 +30,7 @@ export class MyAttendingSinglePageComponent implements OnInit, OnDestroy {
      this.tripService.getTrip(params['id']).subscribe((data) => {
        this.trip = data;
        this.myBooking = this.trip.bookings.find((booking) => booking.userId._id  === this.user.id)
+       
      });
    });
    this.subscriptions.push(routeParamsSubscription);
