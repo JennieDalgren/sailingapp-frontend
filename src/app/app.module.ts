@@ -25,6 +25,8 @@ import { SearchComponent } from './components/search/search.component';
 import { RequestBookingComponent } from './components/request-booking/request-booking.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
+import { OtherUserComponent } from './components/other-user/other-user.component';
+
 
 //PAGES
 import { SingleTripPageComponent } from './pages/single-trip-page/single-trip-page.component';
@@ -38,6 +40,7 @@ import { MyHostedPageComponent } from './pages/my-hosted-page/my-hosted-page.com
 import { MyAttendingPageComponent } from './pages/my-attending-page/my-attending-page.component';
 import { MyAttendingSinglePageComponent } from './pages/my-attending-single-page/my-attending-single-page.component';
 import { MyHostedSinglePageComponent } from './pages/my-hosted-single-page/my-hosted-single-page.component';
+import { OtherUserPageComponent } from './pages/other-user-page/other-user-page.component';
 
 //ROUTES
 const routes: Routes = [
@@ -45,6 +48,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'create', component: CreateTripPageComponent },
   { path: 'user', component: UserPageComponent },
+  { path: 'user/:id', component: OtherUserPageComponent },
   { path: 'all/:id', component: SingleTripPageComponent },
   { path: 'attending/:id', component: MyAttendingSinglePageComponent },
   { path: 'host/:id', component: MyHostedSinglePageComponent },
@@ -81,6 +85,8 @@ const routes: Routes = [
     MyAttendingSinglePageComponent,
     MyHostedSinglePageComponent,
     UserNavComponent,
+    OtherUserPageComponent,
+    OtherUserComponent,
   ],
   imports: [
     BrowserModule,

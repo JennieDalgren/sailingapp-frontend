@@ -23,4 +23,14 @@ export class UserService {
     })
   }
 
+  getUser(id: string){
+    console.log("im in getuser in service");
+    console.log(apiUrl, id);
+    let options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(apiUrl + `/auth/${id}`, options)
+      .map((res: Response) => {
+         return res.json()
+      })
+  }
 }
