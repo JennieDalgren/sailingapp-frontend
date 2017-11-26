@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Trip } from '../../models/trip.model';
+import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
+
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -8,13 +11,15 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./single-trip.component.scss']
 })
 export class SingleTripComponent implements OnInit {
-
+  user: User;
   @Input() trip: Trip;
   apiUrl = environment.apiUrl;
 
-  constructor() { }
+  constructor(    private auth: AuthService
+) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
   }
 
 }

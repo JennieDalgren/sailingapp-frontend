@@ -22,7 +22,6 @@ export class OtherUserPageComponent implements OnInit, OnDestroy {
  ) { }
 
   private loadUser() {
-    console.log("im in loaduser");
     let routeParamsSubscription = this.activatedRoute.params.subscribe(params => {
       this.userService.getUser(params['id']).subscribe((data) => this.user = data);
     });
@@ -30,9 +29,7 @@ export class OtherUserPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log("im in oninit");
     this.loadUser();
-
   }
 
   ngOnDestroy() {

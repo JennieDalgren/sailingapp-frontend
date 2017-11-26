@@ -1,28 +1,27 @@
-<p>
-  other-user works!
-</p>
 
-<div class="user-header-big">
-  <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
-  <h2 class="user-name">{{user.name}}</h2>
+<div *ngIf="user" class="user-page">
+  <div class="user-header-big">
+    <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
+    <h2 class="user-name">{{user.name}}</h2>
 
-</div>
-
-<div class="bio">
-  <p>{{user.bio}}</p>
-
-  <div class="bio-item">
-    <span class="bio-label">email</span>
-    <span class="bio-data">{{user.email}}</span>
   </div>
 
-  <div class="bio-item">
-    <span class="bio-label">phonenumber</span>
-    <span class="bio-data">+{{user.phoneNumber}}</span>
+  <div class="bio">
+    <p>{{user.bio}}</p>
+
+    <div class="bio-item">
+      <span class="bio-label">email</span>
+      <span class="bio-data">{{user.email}}</span>
+    </div>
+
+    <div class="bio-item">
+      <span class="bio-label">phonenumber</span>
+      <span class="bio-data">+{{user.phoneNumber}}</span>
+    </div>
+
   </div>
 
-</div>
-
-<div class="bio">
-  <a class="button" href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">Send a message</a>
+  <div class="bio">
+    <a class="button" href="https://api.whatsapp.com/send?phone={{user.phoneNumber}}&text=I%20want%20to%20sail%20with%20you">Send a message</a>
+  </div>
 </div>
