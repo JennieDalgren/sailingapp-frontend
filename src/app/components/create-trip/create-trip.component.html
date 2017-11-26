@@ -49,7 +49,7 @@
 
       <div class="form-item" [ngClass]="{'has-error': uploadRequired}">
         <label class="label">Upload Photos</label>
-        <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+        <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
         <p class="feedback" *ngIf="uploadRequired">Please select a file</p>
       </div>
 
