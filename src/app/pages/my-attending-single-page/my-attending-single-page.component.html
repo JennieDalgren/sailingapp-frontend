@@ -1,8 +1,8 @@
 <app-header></app-header>
 <app-user-nav></app-user-nav>
-
-<div class="booking-bar" *ngIf="myBooking">
-  <h2 class="title">Your booking is {{myBooking.status}}</h2>
+<div *ngIf="trip">
+  <div class="booking-bar" *ngIf="myBooking">
+    <h2 class="title">Your booking is {{myBooking.status}}</h2>
+  </div>
 </div>
-
 <app-single-trip [trip]="trip"></app-single-trip>
