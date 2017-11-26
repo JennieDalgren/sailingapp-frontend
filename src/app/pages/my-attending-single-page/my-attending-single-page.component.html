@@ -4,5 +4,6 @@
   <div class="booking-bar" *ngIf="myBooking">
     <h2 class="title">Your booking is {{myBooking.status}}</h2>
   </div>
+
+  <app-single-trip [trip]="trip"></app-single-trip>
 </div>
-<app-single-trip [trip]="trip"></app-single-trip>
