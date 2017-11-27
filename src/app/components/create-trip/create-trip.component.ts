@@ -29,6 +29,7 @@ export class CreateTripComponent implements OnInit {
     name: '',
     description: '',
     price: '',
+    startingSpots: 1,
     availableSpots: 1,
     fileName: null,
   };
@@ -51,6 +52,7 @@ export class CreateTripComponent implements OnInit {
   }
 
   private submit() {
+    this.formData.availableSpots = this.formData.startingSpots
     let tripSubscription = this.tripService.insertNew(this.formData).subscribe(() => {
       this.router.navigate(['/my-hosted']);
     });

@@ -10,6 +10,8 @@ export class Trip {
   endDate: any;
   bookings: Array<any>;
   photos: Array<any>;
+  startingSpots: number;
+  availableSpots: number;
 
 
   constructor(obj: Object = {}) {

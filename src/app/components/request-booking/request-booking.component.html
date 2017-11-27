@@ -16,6 +16,7 @@
       <div class="facts-item">
         <span class="facts-label">number of guests</span>
         <span class="facts-data"><input type="number" name="guestCount" #myGuestCount=ngModel [(ngModel)]="bookingFormData.guestCount"></span>
+        <span *ngIf="trip.availableSpots < bookingFormData.guestCount" style="color: red;">Not enough available spots.</span>
       </div>
 
       <div class="facts-item">
@@ -28,7 +29,7 @@
         <span class="facts-data"><textarea rows="4" name="message" #myMessage=ngModel [(ngModel)]="bookingFormData.message"></textarea></span>
       </div>
 
-      <button type="submit" class="button">Book</button>
+      <button type="submit" class="button" *ngIf="trip.availableSpots >= bookingFormData.guestCount">Book</button>
 
     </div>
   </form>
