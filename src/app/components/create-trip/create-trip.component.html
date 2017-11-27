@@ -8,8 +8,7 @@
       <h2>Create a new trip</h2>
     </div>
     <form class="create-trip" (ngSubmit)="handleCreateTripForm(myForm)" #myForm="ngForm" novalidate>
-      <input type="text" name="photo" [(ngModel)]="formData.fileName" id="secret-input"/>
-
+      
       <div class="form-item">
         <label class="label">Trip Name</label>
         <input type="text" name="name" #myName=ngModel [(ngModel)]="formData.name">
