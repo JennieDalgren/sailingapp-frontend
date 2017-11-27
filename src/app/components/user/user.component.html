@@ -7,7 +7,7 @@
   <div *ngIf="!update">
 
     <div class="user-header-big">
-      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+user.photo + ')'}"></div>
+      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + user.photo + ')'}"></div>
       <h2 class="user-name">{{user.name}}</h2>
       <a class="logout" (click)="toggleForm()">update profile</a>
     </div>
@@ -26,7 +26,7 @@
       </div>
 
     </div>
-    
+
   </div>
 
 

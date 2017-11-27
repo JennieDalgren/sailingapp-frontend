@@ -7,10 +7,10 @@
   <div class="user-header-small">
 
     <a *ngIf="trip.host?._id !== user.id" [routerLink]="['/user', trip.host?._id]">
-      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.host?.photo + ')'}"></div>
+      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + trip.host?.photo + ')'}"></div>
     </a>
     <a *ngIf="trip.host?._id === user.id" [routerLink]="['/user']">
-      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + apiUrl+trip.host?.photo + ')'}"></div>
+      <div class="user-photo" [ngStyle]="{'background-image': 'url(' + trip.host?.photo + ')'}"></div>
     </a>
     <div class="user-meta">
       <div class="user-name">{{trip.host?.name}}</div>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="trip-photos">
-    <img src="{{apiUrl+trip.photos}}" alt="">
+    <img src="{{trip.photos}}" alt="">
   </div>
 
   <div class="trip-description">
