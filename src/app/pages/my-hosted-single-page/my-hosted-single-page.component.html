@@ -8,7 +8,7 @@
   <div *ngIf="trip.bookings.length" class="title">You've got bookings for this trip!</div>
   <div *ngFor="let booking of trip.bookings" class="booking-item">
 
-    <span class="name">{{booking.userId.name}} - <em>({{booking.guestcount}} guests)</em></span>
+    <span class="name"><a [routerLink]="['/user', booking.userId._id]">{{booking.userId.name}}</a> - <em>({{booking.guestcount}} guests)</em></span>
     <span class="label">message</span>
     <span class="message">{{booking.message}} - {{booking.status}}</span>
 
