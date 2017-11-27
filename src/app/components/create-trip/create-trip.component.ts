@@ -31,7 +31,7 @@ export class CreateTripComponent implements OnInit {
     price: '',
     startingSpots: 1,
     availableSpots: 1,
-    fileName: null,
+    photos: null,
   };
 
   public uploader: FileUploader = new FileUploader({url: URL})
@@ -69,11 +69,16 @@ export class CreateTripComponent implements OnInit {
 
     this.uploader.uploadAll();
 
+    const photos = []
+
     this.uploader.onCompleteItem = (item, response) => {
       let data = JSON.parse(response);
-      this.formData.fileName = data.fileName;
-      this.submit();
+      photos.push(data.fileName);
+    }
 
+    this.uploader.onCompleteAll = () => {
+      this.formData.photos = photos;
+      this.submit();
     }
   }
 

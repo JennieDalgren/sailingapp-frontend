@@ -23,8 +23,8 @@
     <span class="trip-dates">{{trip.startDate | date:"mediumDate"}} - {{trip.endDate | date:"mediumDate"}}</span>
   </div>
 
-  <div class="trip-photos">
-    <img src="{{trip.photos}}" alt="">
+  <div class="trip-photos" *ngFor="let photo of trip.photos">
+    <img src="{{ photo }}" alt="">
   </div>
 
   <div class="trip-description">

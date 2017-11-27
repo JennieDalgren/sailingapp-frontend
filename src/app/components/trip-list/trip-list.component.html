@@ -3,7 +3,8 @@
 
     <div class="item" *ngIf="trip">
       <a [routerLink]="['/', type, trip.id]">
-        <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + trip.photos + ')'}">
+
+        <header class="item-header-photo" [ngStyle]="{'background-image': 'url(' + trip.photos[0] + ')'}">
           <!-- Add the status of the booking here. depending on host/guest -->
           <!-- <div class="status pending">pending</div> -->
         </header>
