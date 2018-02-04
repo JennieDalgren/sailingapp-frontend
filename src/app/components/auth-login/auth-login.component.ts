@@ -15,7 +15,7 @@ export class AuthLoginComponent implements OnDestroy{
     password: ''
   });
 
-  error: string;
+  error: {};
   message: string;
   subscriptions = [];
 
@@ -30,7 +30,7 @@ export class AuthLoginComponent implements OnDestroy{
             this.router.navigate(['/home']);
         } else {this.message}
       },
-      (err) => this.error = err
+      (err) => this.error = JSON.parse(err._body)
     );
     this.subscriptions.push(authSubscription);
   }

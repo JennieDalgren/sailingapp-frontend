@@ -73,7 +73,7 @@ export class AuthService {
         this.setUser(user);
         return user;
       }, (err) => {
-        if(err.status=== 404) {
+        if(err.status === 404) {
           this.setUser();
         }
       });

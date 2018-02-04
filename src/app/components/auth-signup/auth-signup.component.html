@@ -14,8 +14,9 @@
         <input type="email" [(ngModel)]="user.email" name="email" required/>
       </div>
       <div class="form-item field" [ngClass]="{'has-error': error}">
-        <label class="label">Phone Number</label>
-        <input type="text" [(ngModel)]="user.phoneNumber" name="phoneNumber" placeholder="if +34 622 832 177 put 34622832177"required/>
+        <label class="label" title="format of phone number: if you number is +34 622 832 177 put 34622832177 I.e no spaces and no beginnings with 00 or +"><i class="fa fa-info-circle"></i> Phone Number
+</label>
+        <input type="text" [(ngModel)]="user.phoneNumber" name="phoneNumber" required/>
       </div>
       <div class="form-item field" [ngClass]="{'has-error': error}">
         <label class="label">Password</label>
@@ -23,7 +24,7 @@
       </div>
       <div class="form-item actions">
         <button class="button" (click)="signup()">Signup</button>
-        <p *ngIf="error" class="error">{{error}}</p>
+        <p *ngIf="error" class="error">{{error.error}}</p>
       </div>
       <div class="form-item">
         <p>Already a member? <a [routerLink]="['/login']">login</a></p>
